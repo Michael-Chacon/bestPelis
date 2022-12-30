@@ -62,4 +62,15 @@ class User extends Authenticatable
     {
          return $this->hasMany(Anime::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+    
 }
