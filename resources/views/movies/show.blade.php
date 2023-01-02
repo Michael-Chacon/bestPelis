@@ -154,7 +154,7 @@
                 </article>
                 <article class="col-span-3 md:col-span-1">
                     <div class="p-4">
-                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"/>
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             <x-primary-button class="w-full bg-purple-900 mt-2">
                                 <span class="text-center">
