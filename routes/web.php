@@ -23,10 +23,11 @@ Route::get('/', function () {
     return view('cine');
 })->name('cine');
 
-Route::get('series/', [SerieController::class, 'index'])->name('series.index');
+Route::get('series', [SerieController::class, 'index'])->name('series.index');
+Route::get('series/show/{serie}', [SerieController::class, 'show'])->name('series.show');
 
-Route::resource('animes/', 'App\Http\Controllers\AnimeController')->names('anime')->parameters(['animes' => 'anime']);
-Route::resource('movies/', 'App\Http\Controllers\MovieController')->names('movie')->parameters(['movies' => 'movie']);
+Route::resource('animes', 'App\Http\Controllers\AnimeController')->names('anime')->parameters(['animes' => 'anime']);
+Route::resource('movies', 'App\Http\Controllers\MovieController')->names('movie')->parameters(['movies' => 'movie']);
 Route::resource('podcasts/', 'App\Http\Controllers\PodcastController')->names('podcast')->parameters(['podcasts' => 'podcast']);
 
 Route::get('/dashboard', function () {

@@ -21,6 +21,7 @@
                         </div>
                     </div>
                     <div class="p-4">
+                        <a href="{{ route('anime.show', $anime) }}">Anime</a>
                         <div class="flex items-center justify-between">
                             <h1 class="text-gray-600 font-medium">titan.jpg</h1> <button
                                 class="text-gray-500 hover:text-gray-900"> <svg xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +30,7 @@
                                         d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                                 </svg> </button>
                         </div>
-                        <p class="text-gray-400 text-sm my-1">Jack cooper</p> <span
+                        <p class="text-gray-400 text-sm my-1">{{ $anime->name }}</p> <span
                             class="uppercase text-xs bg-green-50 p-0.5 border-green-500 border rounded text-green-700 font-medium">Approved</span>
                     </div>
                 </div>

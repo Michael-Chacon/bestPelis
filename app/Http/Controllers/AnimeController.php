@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
 use Illuminate\Http\Request;
 
 class AnimeController extends Controller
@@ -13,7 +14,8 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('animes.index');
+        $anime = Anime::find(1);
+        return view('animes.index', compact('anime'));
     }
 
     /**
@@ -21,9 +23,9 @@ class AnimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Anime $anime)
     {
-        //
+        
     }
 
     /**
@@ -43,9 +45,9 @@ class AnimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Anime $anime)
     {
-        //
+        return view('animes.show', compact('anime'));
     }
 
     /**
