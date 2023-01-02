@@ -13,8 +13,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen">
+    <body class="font-sans antialiased ">
+        <div class="min-h-screen bg-gradient-to-r from-gray-900 to-slate-900">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
