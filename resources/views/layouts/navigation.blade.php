@@ -12,13 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('peliculas')">
+                    <x-nav-link :href="route('movie.index')" :active="request()->routeIs('movie')">
                         {{ __('Peliculas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('series')">
+                    <x-nav-link :href="route('series.index')" :active="request()->routeIs('serie')">
                         {{ __('Series') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('anime')">
+                    <x-nav-link :href="route('anime.index')" :active="request()->routeIs('anime')">
                         {{ __('Anime') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('podcast')">

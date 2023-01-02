@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Models\Anime;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SerieController;
+use App\Http\Controllers\PodcastController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('cine');
 })->name('cine');
+
+Route::get('series/', [SerieController::class, 'index'])->name('series.index');
+
+Route::resource('animes/', 'App\Http\Controllers\AnimeController')->names('anime')->parameters(['animes' => 'anime']);
+Route::resource('movies/', 'App\Http\Controllers\MovieController')->names('movie')->parameters(['movies' => 'movie']);
+Route::resource('podcasts/', 'App\Http\Controllers\PodcastController')->names('podcast')->parameters(['podcasts' => 'podcast']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
