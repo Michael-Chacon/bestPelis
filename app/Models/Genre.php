@@ -11,6 +11,7 @@ class Genre extends Model
         'genreable_id',
         'genreable_type',
         'genre_id',
+        'name',
     ];
 
     use HasFactory;
