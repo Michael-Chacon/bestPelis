@@ -1,11 +1,117 @@
 <x-app-layout>
     <x-slot name="header">
         <section class="container">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
                 <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    
+                <div x-data="{ modelMovie: false }">
+                    <button @click="modelMovie =!modelMovie">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                    </svg>                      
+                    </svg>
+                    </button>
+                
+                    <div x-show="modelMovie" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                        <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+                            <div x-cloak @click="modelMovie = false" x-show="modelMovie" 
+                                x-transition:enter="transition ease-out duration-300 transform"
+                                x-transition:enter-start="opacity-0" 
+                                x-transition:enter-end="opacity-100"
+                                x-transition:leave="transition ease-in duration-200 transform"
+                                x-transition:leave-start="opacity-100" 
+                                x-transition:leave-end="opacity-0"
+                                class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true">
+                            </div>
+                
+                            <div x-cloak x-show="modelMovie" 
+                                x-transition:enter="transition ease-out duration-300 transform"
+                                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
+                                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                x-transition:leave="transition ease-in duration-200 transform"
+                                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
+                                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <h1 class="text-xl font-medium text-gray-800 ">Registrar una nueva pelicula</h1>
+                
+                                    <button @click="modelMovie = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                
+                                <p class="mt-2 text-sm text-gray-500 ">
+                                    Add your teammate to your team and start work to get things done
+                                </p>
+                
+                                <form class="mt-5">
+                                    <div>
+                                        <label for="user name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Nombre</label>
+                                        <input placeholder="Arthur Melo" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                    </div>
+                
+                                    <div class="mt-4">
+                                        <label for="email" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Teammate email</label>
+                                        <input placeholder="arthurmelo@example.app" type="email" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <h1 class="text-xs font-medium text-gray-400 uppercase">Permissions</h1>
+                
+                                        <div class="mt-4 space-y-5">
+                                            <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                    :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                    <label for="show"
+                                                        @click="show =!show"
+                                                        class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                        :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                    <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                </div>
+                
+                                                <p class="text-gray-500">Can make task</p>
+                                            </div>
+                
+                                            <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: false }" @click="show =!show">
+                                                <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                    :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                    <label for="show"
+                                                        @click="show =!show"
+                                                        class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                        :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                    <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                </div>
+                
+                                                <p class="text-gray-500">Can delete task</p>
+                                            </div>
+                
+                                            <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                    :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                    <label for="show"
+                                                        @click="show =!show"
+                                                        class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                        :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                    <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                </div>
+                
+                                                <p class="text-gray-500">Can edit task</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-end mt-6">
+                                        <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                            Invite Member
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                {{-- end --}}
                 </article>
                 <article  x-data="{ modelSerie: false }" class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
                     <div x-data="{ modelSerie: false }">
@@ -127,14 +233,223 @@
                     </svg>
                 </article>
                 <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
-                    </svg>                      
+                    
+                    <div x-data="{ modelActor: false }">
+                        <button @click="modelActor =!modelActor">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                            </svg>
+                        </button>
+                    
+                        <div x-show="modelActor" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                            <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+                                <div x-cloak @click="modelActor = false" x-show="modelActor" 
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0" 
+                                    x-transition:enter-end="opacity-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100" 
+                                    x-transition:leave-end="opacity-0"
+                                    class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true">
+                                </div>
+                    
+                                <div x-cloak x-show="modelActor" 
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
+                                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
+                                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                                    <div class="flex items-center justify-between space-x-4">
+                                        <h1 class="text-xl font-medium text-gray-800 ">Registrar una nueva Actor</h1>
+                    
+                                        <button @click="modelActor = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                    
+                                    <p class="mt-2 text-sm text-gray-500 ">
+                                        Add your teammate to your team and start work to get things done
+                                    </p>
+                    
+                                    <form class="mt-5">
+                                        <div>
+                                            <label for="user name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Nombre</label>
+                                            <input placeholder="Arthur Melo" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        </div>
+                    
+                                        <div class="mt-4">
+                                            <label for="email" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Teammate email</label>
+                                            <input placeholder="arthurmelo@example.app" type="email" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <h1 class="text-xs font-medium text-gray-400 uppercase">Permissions</h1>
+                    
+                                            <div class="mt-4 space-y-5">
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can make task</p>
+                                                </div>
+                    
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: false }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can delete task</p>
+                                                </div>
+                    
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can edit task</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-end mt-6">
+                                            <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                                Invite Member
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     
                 </article>
                 <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
-                    </svg>                      
+                    <div x-data="{ modelGenre: false }">
+                        <button @click="modelGenre =!modelGenre">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+                            </svg>
+                        </button>
+                    
+                        <div x-show="modelGenre" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                            <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+                                <div x-cloak @click="modelGenre = false" x-show="modelGenre" 
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0" 
+                                    x-transition:enter-end="opacity-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100" 
+                                    x-transition:leave-end="opacity-0"
+                                    class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true">
+                                </div>
+                    
+                                <div x-cloak x-show="modelGenre" 
+                                    x-transition:enter="transition ease-out duration-300 transform"
+                                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
+                                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                    x-transition:leave="transition ease-in duration-200 transform"
+                                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
+                                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                                    <div class="flex items-center justify-between space-x-4">
+                                        <h1 class="text-xl font-medium text-gray-800 ">Registrar un nuevo genero</h1>
+                    
+                                        <button @click="modelGenre = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                    
+                                    <p class="mt-2 text-sm text-gray-500 ">
+                                        Add your teammate to your team and start work to get things done
+                                    </p>
+                    
+                                    <form class="mt-5">
+                                        <div>
+                                            <label for="user name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Nombre</label>
+                                            <input placeholder="Arthur Melo" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        </div>
+                    
+                                        <div class="mt-4">
+                                            <label for="email" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Teammate email</label>
+                                            <input placeholder="arthurmelo@example.app" type="email" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <h1 class="text-xs font-medium text-gray-400 uppercase">Permissions</h1>
+                    
+                                            <div class="mt-4 space-y-5">
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can make task</p>
+                                                </div>
+                    
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: false }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can delete task</p>
+                                                </div>
+                    
+                                                <div class="flex items-center space-x-3 cursor-pointer" x-data="{ show: true }" @click="show =!show">
+                                                    <div class="relative w-10 h-5 transition duration-200 ease-linear rounded-full"
+                                                        :class="[show ? 'bg-indigo-500' : 'bg-gray-300']">
+                                                        <label for="show"
+                                                            @click="show =!show"
+                                                            class="absolute left-0 w-5 h-5 mb-2 transition duration-100 ease-linear transform bg-white border-2 rounded-full cursor-pointer"
+                                                            :class="[show ? 'translate-x-full border-indigo-500' : 'translate-x-0 border-gray-300']"></label>
+                                                        <input type="checkbox" name="show" class="hidden w-full h-full rounded-full appearance-none active:outline-none focus:outline-none"/>
+                                                    </div>
+                    
+                                                    <p class="text-gray-500">Can edit task</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-end mt-6">
+                                            <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                                                Invite Member
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
                 </article>
             </div>
         </section>
