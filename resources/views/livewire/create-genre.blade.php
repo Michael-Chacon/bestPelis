@@ -1,3 +1,4 @@
+
 <div>
     <div x-data="{ modelGenre: false }">
         <button @click="modelGenre =!modelGenre">

@@ -7,15 +7,18 @@ use Livewire\Component;
 
 class ShowGenre extends Component
 {
-    protected $listeners =['showgenero' => 'render'];
+    protected $listeners =['showgenero' => 'render', 'eliminarGenero'];
+
+    public function eliminarGenero(Genre $genre)
+    {
+        $genre->delete();
+    }
 
     public function render()
     {
-        $estado = false;
         $generos = Genre::get();
         return view('livewire.show-genre', [
-            'genres' => $generos,
-            'estado' => $estado, 
+            'genres' => $generos
         ]);
     }
 }

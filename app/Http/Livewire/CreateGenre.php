@@ -22,6 +22,7 @@ class CreateGenre extends Component
         ]);
 
         session()->flash('mensaje', 'Genero creado con éxito');
+        $this->reset();
         $this->emit('showgenero');
     }
 
