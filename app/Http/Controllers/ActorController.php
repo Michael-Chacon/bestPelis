@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use Illuminate\Http\Request;
 
 class ActorController extends Controller
@@ -13,7 +14,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        return view('actors.show');
+        
     }
 
     /**
@@ -43,9 +44,11 @@ class ActorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Actor $actor)
     {
-        //
+        return view('actors.show', [
+            'actor' => $actor,
+        ]);
     }
 
     /**

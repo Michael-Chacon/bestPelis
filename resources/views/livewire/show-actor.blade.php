@@ -3,7 +3,7 @@
         @forelse ($actors as $actor)
             <div class="flex mb-2 justify-between rounded-full py-1 px-4 font-medium border text-black bg-white border-black">
                 <span class="text-center">
-                    <a href="{{ route('actor.index') }}">
+                    <a href="{{ route('actor.show', $actor) }}">
                         {{ $actor->name }}
                     </a>
                 </span>

@@ -28,8 +28,8 @@ Route::get('series/show/{serie}', [SerieController::class, 'show'])->name('serie
 
 Route::resource('animes', 'App\Http\Controllers\AnimeController')->names('anime')->parameters(['animes' => 'anime']);
 Route::resource('movies', 'App\Http\Controllers\MovieController')->names('movie')->parameters(['movies' => 'movie']);
-Route::resource('podcasts/', 'App\Http\Controllers\PodcastController')->names('podcast')->parameters(['podcasts' => 'podcast']);
-Route::resource('actors/', 'App\Http\Controllers\ActorController')->names('actor')->parameters(['actors' => 'actor']);
+Route::resource('podcasts', 'App\Http\Controllers\PodcastController')->names('podcast')->parameters(['podcasts' => 'podcast']);
+Route::resource('actors', 'App\Http\Controllers\ActorController')->names('actor')->parameters(['actors' => 'actor']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
