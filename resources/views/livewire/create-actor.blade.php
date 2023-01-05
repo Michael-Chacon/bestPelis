@@ -25,7 +25,7 @@
                     x-transition:leave="transition ease-in duration-200 transform"
                     x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
                     x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all text-white bg-gradient-to-r from-purple-900 to-black transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all text-white bg-gradient-to-r from-purple-900 to-black transform rounded-lg shadow-xl 2xl:max-w-2xl">
                     <div class="flex items-center justify-between space-x-4">
                         <h1 class="text-xl font-medium text-gray-200 ">Registrar una nueva Actor</h1>
     
