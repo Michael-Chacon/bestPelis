@@ -43,12 +43,12 @@
                     <form class="mt-5" wire:submit.prevent='saveMovie' enctype="multipart/form-data">
                         <section class="grid grid-cols-1">
                             @if ($portada)
-                                    <img class="object-cover object-top h-44 w-full" src="{{ $portada->temporaryUrl() }}" alt="">
+                                <img class="object-cover object-top h-44 w-full" src="{{ $portada->temporaryUrl() }}" alt="">
                             @endif
                         </section>
                         <section class="grid grid-cols-1">
                             @if ($perfil)
-                                    <img class="object-cover object-top w-32 -mt-20 border border-white" src="{{ $perfil->temporaryUrl() }}" alt="">
+                                <img class="object-cover object-top w-32 -mt-20 border border-white" src="{{ $perfil->temporaryUrl() }}" alt="">
                             @endif
                         </section>
                         <div class="mb-3">
@@ -96,13 +96,12 @@
                                     <x-input-error :messages="$errors->get('actors')" class="mt-2" />
                                     @forelse ($actores   as $name => $id)
                                         <div class="flex-1">     
-                                            <input id="default-checkbox.{{ $id }}" wire:model="actors.{{ $id }}]" type="checkbox" value="{{ $id }}" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="default-checkbox.{{ $id }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $name}}</label>
+                                            <input id="default-checkbox.{{ $name }}" wire:model="actors.{{ $id }}]" type="checkbox" value="{{ $id }}" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="default-checkbox.{{ $name }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $name}}</label>
                                         </div>
                                     @empty
                                         <p class="text-md text-gray-400 text-center">No hay actores</p>
                                     @endforelse
-
                                 </div>
 
                             </div>
@@ -113,8 +112,8 @@
                                     <x-input-error :messages="$errors->get('genres')" class="mt-2" />
                                     @forelse ($generos   as $name => $id)
                                         <div class="flex-1">     
-                                            <input id="default-checkbox.{{ $id }}" wire:model="genres.{{ $id }}" type="checkbox" value="{{ $id }}" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="default-checkbox.{{ $id }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $name}}</label>
+                                            <input id="default-checkbox.{{ $name }}" wire:model="genres.{{ $id }}" type="checkbox" value="{{ $id }}" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="default-checkbox.{{ $name }}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $name}}</label>
                                         </div>
                                     @empty
                                         <p class="text-md text-gray-400 text-center">No hay generos</p>

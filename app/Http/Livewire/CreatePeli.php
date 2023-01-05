@@ -27,8 +27,8 @@ class CreatePeli extends Component
         'sinopsis' => 'required',
         'actors' => 'required',
         'genres' => 'required',
-        // 'perfil' => 'required|image|max:2058',
-        // 'portada' => 'required|image|max:2058'
+        'perfil' => 'required|image|max:2058',
+        'portada' => 'required|image|max:2058'
     ];
 
     public function saveMovie()
@@ -43,9 +43,20 @@ class CreatePeli extends Component
             'user_id' => auth()->user()->id,
         ]);
 
+        // Guardar generos y actores
         $peli->actors()->attach($movie['actors']);
-
         $peli->genres()->attach($movie['genres']);
+
+        // Guradar imagene de perfil y de portada
+        $perfil = $this->perfil->store('public/perfil');
+        $url_perfil = str_replace('public/perfil/', '', $perfil);
+
+        $portada = $this->portada->store('public/portada');
+        $url_portada = str_replace('public/portada/', '', $portada);
+
+        $peli->images()->create(['url' => $url_perfil, 'destination' => 'perfil']);
+        $peli->images()->create(['url' => $url_portada, 'destination' => 'portada']);
+
         $this->reset();
     }
 
