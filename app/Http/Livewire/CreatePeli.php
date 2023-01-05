@@ -56,8 +56,8 @@ class CreatePeli extends Component
 
         $peli->images()->create(['url' => $url_perfil, 'destination' => 'perfil']);
         $peli->images()->create(['url' => $url_portada, 'destination' => 'portada']);
-
         $this->reset();
+        $this->emit('render');
     }
 
     use WithFileUploads;

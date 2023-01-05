@@ -67,7 +67,7 @@
                         
                         <div class="flex justify-end mt-6">
                             <x-primary-button class="w-full justify-center" @click="modelActor = {{ !empty($errors->any()) ? 'false' : 'true'}}">
-                                {{ __('Registrar genero') }}
+                                {{ __('Registrar Actor') }}
                             </x-primary-button>
                         </div>
                     </form>

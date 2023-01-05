@@ -6,12 +6,11 @@
         <div class="container mx-auto">
             <section class="flex gap-x-5 mb-10">
                 <article>
-                    <img class="md:-mt-20 w-0 sm:w-0 md:w-0 lg:w-96 xl:w-96  border border-pink-200 rounded-3xl"src="https://image.tmdb.org/t/p/w154/6yoghtyTpznpBik8EngEmJskVUO.jpg"
+                    <img class="md:-mt-20  w-80  border border-pink-200 rounded-xl"src="https://image.tmdb.org/t/p/w154/6yoghtyTpznpBik8EngEmJskVUO.jpg"
                         alt="">
                 </article>
                 <article class="pt-5 text-white">
-                    <h1 class="text-5xl capitalize">{{ $movie->name }}<span class="text-xl text-gray-500">
-                            (2019)</span></h1>
+                    <h1 class="text-5xl capitalize">{{ $movie->name }}<span class="text-xl text-gray-500">({{ $movie->premiere->format('Y') }})</span></h1>
                     {{-- premiere, genre  --}}
                     <span class="flex gap-x-2 mt-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -21,7 +20,7 @@
                             <path
                                 d="M12.475 6.465a.75.75 0 011.06 0 5 5 0 010 7.07.75.75 0 11-1.06-1.06 3.5 3.5 0 000-4.95.75.75 0 010-1.06zM7.525 6.465a.75.75 0 010 1.06 3.5 3.5 0 000 4.95.75.75 0 01-1.06 1.06 5 5 0 010-7.07.75.75 0 011.06 0zM11 10a1 1 0 11-2 0 1 1 0 012 0z" />
                         </svg>
-                        <span class="text-teal-200 tracking-widest">Dic/3/1999 (US)</span>
+                        <span class="text-teal-200 tracking-widest">{{ $movie->premiere->toFormattedDateString() }} (US)</span>
                         •
                         <a href="#"
                             class="text-pink-200 hover:text-gray-400 hover:border-b hover:border-pink-600">Crimen</a>
@@ -63,10 +62,8 @@
                     <div class="mt-3">
                         <h3>Sinapsis</h3>
                         <section class="h-20 overflow-auto">
-                            <p class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi omnis
-                                aliquam vitae
-                                itaque doloribus fuga quos velit ipsum ducimus consectetur quibusdam blanditiis
-                                perferendis officia, asperiores, deleniti recusandae sint reprehenderit sunt.
+                            <p class="text-sm">
+                                {{$movie->sinopsis}}
                             </p>
                         </section>
                     </div>
