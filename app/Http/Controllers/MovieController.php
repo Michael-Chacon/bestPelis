@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -50,9 +51,11 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         $generos = $movie->genres;
+        $actores = $movie->actors;
         return view('movies.show', [
             'movie' => $movie, 
             'generos' => $generos,
+            'actores' => $actores,
         ]);
     }
 
