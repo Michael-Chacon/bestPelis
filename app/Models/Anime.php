@@ -36,4 +36,9 @@ class Anime extends Model
     {
         return $this->morphMany(Like::class, 'likeable');
     }
+
+    public function favorites()
+    {
+        return $this->morphMany(Favorite::class, 'favoriteable');
+    }
 }
