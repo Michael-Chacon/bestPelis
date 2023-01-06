@@ -37,80 +37,26 @@
                     <h3 class="text-gray-400 tracking-widest text-2xl mb-5 text-center md:text-left">Peliculas donde actua</h3>
                 {{-- actores --}}
                     <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
-                        <div class="w-40 bg-white shadow border border-pink-200 mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.infobae.com/new-resizer/8pQCp7Pgi7imBtNq95PrYgFa1U4=/1200x900/filters:format(webp):quality(85)//s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2016/07/28235953/morgan-freeman.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1 truncate">
-                                    morgan freeman
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-40 bg-white shadow border border-white mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.themoviedb.org/t/p/w138_and_h175_face/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1">
-                                    Brad Pitt
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-40 bg-white shadow border border-white mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.themoviedb.org/t/p/w138_and_h175_face/slPWN0VvYJtNOEuxlFSsXSNQMaF.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1">
-                                    Gwyneth Paltrow
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-40 bg-white shadow border border-white mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.themoviedb.org/t/p/w138_and_h175_face/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1 truncate">
-                                    Kevin Spacey
-                                </p>
-                            </div>
-                            
-                        </div>
-                        <div class="w-40 bg-white shadow border border-white mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.themoviedb.org/t/p/w138_and_h175_face/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1 truncate">
-                                    Kevin Spacey
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-40 bg-white shadow border border-white mb-3">
-                            {{-- image of profile of actor --}}
-                            <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                                style="background-image: url('https://www.themoviedb.org/t/p/w138_and_h175_face/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg')">
-                            </div>
-                            {{-- data of actor --}}
-                            <div class="p-4 bg-black">
-                                <p class="text-white  text-center text-sm my-1 truncate">
-                                    Kevin Spacey
-                                </p>
-                            </div>
-                            
-                        </div>
+                        @forelse ($peliculas as $pelicula)
+                            <a href="{{ route('movie.show', $pelicula) }}">
+                                <div class="w-40 bg-white shadow border border-pink-200 mb-3">
+                                    {{-- image of profile of actor --}}
+                                    <div>
+                                        <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $pelicula->images()->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">
+                                    </div>
+                                    {{-- data of actor --}}
+                                    <div class="p-4 bg-black">
+                                        <p class="text-white  text-center text-sm my-1 truncate">
+                                            {{ $pelicula->name }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @empty
+                            <p class="text-white text center">
+                                No hay actores
+                            </p>
+                        @endforelse
                     </div>
                 </article>
             </section>

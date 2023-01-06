@@ -46,8 +46,10 @@ class ActorController extends Controller
      */
     public function show(Actor $actor)
     {
+        $movies = $actor->movies;
         return view('actors.show', [
             'actor' => $actor,
+            'peliculas' => $movies,
         ]);
     }
 

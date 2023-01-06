@@ -69,7 +69,7 @@
                                 {{ $genre->name }}
                             </a>
                         @empty
-                           <p class="text-white">No hay generos</p> 
+                           <p class="text-white text-center">No hay generos</p> 
                         @endforelse
                     </span>
                     {{-- Lista de favoritos, like, score --}}
@@ -83,25 +83,31 @@
                         </section>
                     </div>
                     {{-- Actores --}}
-                            <div class="mt-10 grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
+                    <article class="mt-10">
+                    <h3 class="text-gray-400 tracking-widest text-2xl mb-3 text-center md:text-left">Actores</h3>
+                            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
                                 @forelse ($actores as $actor)
-                                
-                                    <div class="w-40 bg-white shadow border border-pink-200 mb-3">
-                                        {{-- image of profile of actor --}}
-                                        <div>
-                                            <img class="object-cover object-top" src="{{ asset('storage/actors/'. $actor->fotoActor) }}" alt="foto perfil">
+                                    <a href="{{ route('actor.show', $actor) }}">
+                                        <div class="w-40 bg-white shadow border border-pink-200 mb-3">
+                                            {{-- image of profile of actor --}}
+                                            <div>
+                                                <img class="object-cover object-top" src="{{ asset('storage/actors/'. $actor->fotoActor) }}" alt="foto perfil">
+                                            </div>
+                                            {{-- data of actor --}}
+                                            <div class="p-4 bg-black">
+                                                <p class="text-white  text-center text-sm my-1 truncate">
+                                                    {{ $actor->name }}
+                                                </p>
+                                            </div>
                                         </div>
-                                        {{-- data of actor --}}
-                                        <div class="p-4 bg-black">
-                                            <p class="text-white  text-center text-sm my-1 truncate">
-                                                {{ $actor->name }}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 @empty
-                                    
+                                    <p class="text-white text center">
+                                        No hay actores
+                                    </p>
                                 @endforelse
                             </div>
+                        </article>
                 </article>
             </section>
         </div>
