@@ -3,9 +3,10 @@
         <div class="max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm">
                 <div class="grid grid-cols-4">
-                    <div class="w-64  shadow-lg shadow-gray-500/50  border border-gray-700">
-                        <div class="h-96 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
-                            style="background-image: url('https://www.pelisplus.lat/wp-content/uploads/2022/10/el-gabinete-de-curiosidades-de-guillermo-del-toro-32036-poster-200x300.jpg')">
+                    @forelse ($movies as $movie)
+                        <div class="w-64  shadow-lg shadow-gray-500/50  border border-gray-700">
+                        <div class="h-96 w-full object-conver flex flex-col justify-between  items-start p-4 bg-cover bg-center"
+                            style="background-image: url(' {{ asset('storage/perfil/' . $movie->images()->where('destination', 'perfil')->pluck('url')->first()) }}')">
                             <div class="w-8 h-9  rounded flex items-center justify-center text-purple-400 hover:text-pink-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -14,21 +15,17 @@
                                 </svg>
                             </div>
                             {{-- Botton like --}}
-                            <div class="flex justify-start">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:fill-red-400 border-b border-red-400">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                    </svg>                                      
-                                </a>
+                            <div class="flex px-1 text-white bg-black bg-opacity-60 border-b-2 border-gray-400">
+                                <livewire:like-movie :movie="$movie"/>
                             </div>
                         </div>
                         <a href="{{ route('movie.show', $movie) }}">
                             <div
                                 class="p-4 bg-gradient-to-r from-purple-900 to-black text-white hover:from-pink-900 hover:to-black">
-                                <h1 class="truncate font-medium">El gabinete de curiosidades de Guillermo del
-                                    Toro
+                                <h1 class="truncate font-medium text-center capitalize">
+                                    {{ $movie->name }}
                                 </h1>
-                                <div class="flex justify-between items-center">
+                                <div class="flex justify-center items-center gap-x-5">
                                     <div class="text-center font-momo text-sm">
                                         <div class="flex justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -55,20 +52,15 @@
                                         </div>
                                         {{ $movie->score }}/10
                                     </div>
-                                    <div class=" gap-1 text-center text-sm">
-                                        <div class="flex justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                                <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
-                                            </svg>                                              
-                                        </div>
-                                        <span class="text-sm">
-                                            2.000
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         </a>
-                    </div>
+                        </div>
+                    @empty
+                        <p class="text-white text-center text-lg">
+                            No hay peliculas registradas
+                        </p>
+                    @endforelse
                 </div>
             </div>
         </div>

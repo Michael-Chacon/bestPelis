@@ -30,4 +30,9 @@ class Podcast extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
 }

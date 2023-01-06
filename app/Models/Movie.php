@@ -46,4 +46,14 @@ class Movie extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function checkLikeMovie(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
+
 }
