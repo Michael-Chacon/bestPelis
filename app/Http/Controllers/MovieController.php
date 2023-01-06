@@ -49,8 +49,10 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
+        $generos = $movie->genres;
         return view('movies.show', [
-            'movie' => $movie   
+            'movie' => $movie, 
+            'generos' => $generos,
         ]);
     }
 

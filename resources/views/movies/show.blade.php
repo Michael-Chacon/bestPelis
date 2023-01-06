@@ -64,10 +64,13 @@
                         </svg>
                         <span class="text-teal-200 tracking-widest">{{ $movie->premiere->toFormattedDateString() }} (US)</span>
                         •
-                        <a href="#"
-                            class="text-pink-200 hover:text-gray-400 hover:border-b hover:border-pink-600">Crimen</a>
-                        <a href="#"
-                            class="text-pink-200 hover:text-gray-400 hover:border-b hover:border-pink-600">Suspense</a>
+                        @forelse ($generos as $genre)
+                            <a href="{{ $genre->id }}"class="text-pink-200 hover:text-gray-400 hover:border-b hover:border-pink-600">
+                                {{ $genre->name }}
+                            </a>
+                        @empty
+                           <p class="text-white">No hay generos</p> 
+                        @endforelse
                     </span>
                     {{-- Lista de favoritos, like, score --}}
                     
