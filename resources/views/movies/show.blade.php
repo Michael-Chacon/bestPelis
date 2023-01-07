@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="overflow-hidden shadow-sm ">
         <section class="grid grid-cols-1">
-            <img class="object-cover object-top h-96 w-full" src="{{ asset('storage/portada/' . $movie->images()->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
+            <img class="object-cover object-left hover:object-top h-96 w-full" src="{{ asset('storage/portada/' . $movie->images()->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
         </section>
         <div class="container mx-auto">
             <section class="grid grid-cols-4 mb-10 gap-x-4">
@@ -17,12 +17,14 @@
                                 </svg>
                                 <span class="text-sm">{{ $movie->score }} /<small>10</small></span>
                             </div>
-                            <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-3 gap-x-2">
-                                <livewire:like-movie :movie="$movie"/>
-                            </div>
-                            <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
-                                <livewire:favorite-movie :movie="$movie" />
-                            </div>
+                            @auth    
+                                <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-3 gap-x-2">
+                                    <livewire:like-movie :movie="$movie"/>
+                                </div>
+                                <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
+                                    <livewire:favorite-movie :movie="$movie" />
+                                </div>
+                            @endauth
                         </section>
                         <article>
                             <div class="p-4">
@@ -60,7 +62,7 @@
                     {{-- Lista de favoritos, like, score --}}
                     
                     <div class="mt-3">
-                        <h3>Sinapsis</h3>
+                        <h3>Sinopsis:</h3>
                         <section class="h-20 overflow-auto">
                             <p class="text-sm">
                                 {{$movie->sinopsis}}
