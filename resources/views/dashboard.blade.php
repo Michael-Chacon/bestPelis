@@ -2,15 +2,15 @@
     <x-slot name="header">
         <section class="container">
             <div class="flex justify-between items-center">
-                <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                  {{-- Modal to create movies  --}}
                 <livewire:create-peli /> 
                 {{-- end --}}
                 </article>
-                <article  class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article  class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     {{-- modal to create series --}}
                     <div x-data="{ modelSerie: false }">
-                        <button @click="modelSerie =!modelSerie" class="text-white hover:text-gray-300">
+                        <button @click="modelSerie =!modelSerie" class="flex text-white hover:text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 fill:bg-white">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
                             </svg> 
@@ -117,21 +117,21 @@
                         </div>
                     </div>                   
                 </article>
-                <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
                     </svg>                      
                 </article>
-                <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
                     </svg>
                 </article>
-                <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     {{-- modal of create actors --}}
                     <livewire:create-actor/>                    
                 </article> 
-                <article class="bg-gradient-to-r from-purple-900 via-black to-pink-900 rounded-full p-3">
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     {{-- modal of create generos --}}
                     <livewire:create-genre/>                      
                 </article>
@@ -139,15 +139,15 @@
         </section>
     </x-slot>
     <div class="container mx-auto py-5">
-        <section class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <article class="text-white overflow-hidden shadow-sm  grid grid-cols-1 md:grid-cols-2">
+        <section class="">
+            <article class="text-white overflow-hidden shadow-sm  grid grid-cols-1 md:grid-cols-4">
 
-                <div class="border-r border-red-200 p-3">
+                <div class="border-r border-red-200 p-3 col-span-3">
                     <h2 class="text-2xl text-gray-200 text-center mt-3 mb-3">Actores</h2>
                     <livewire:show-actor/>
                 </div>
 
-                <div class="border-l border-red-200 p-3">
+                <div class="border-l border-red-200 p-3 col-span-1">
                     <h2 class="text-2xl text-gray-200 text-center mt-3 mb-3">Generos</h2>
                         <livewire:show-genre/>
                 </div>

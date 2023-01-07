@@ -5,7 +5,7 @@
                 <img class="border border-gray-500 w-80 rounded-lg" src="{{ asset('storage/actors/' . $actor->fotoActor) }}" alt="">
                 <section class="flex justify-center items-center gap-x-5 mt-5 text-white border border-gray-500 p-5">
                     <div
-                        class="bg-gradient-to-r from-indigo-900 via-gray-900 to-indigo-900 rounded-full p-3 flex items-center gap-x-2">
+                        class="border border-gray-600 bg-gradient-to-r from-indigo-900 via-black to-black rounded-full p-3 flex items-center gap-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -13,8 +13,7 @@
                         </svg>
                         <span class="text-sm ">8.888/10</span>
                     </div>
-                    <div
-                        class="bg-gradient-to-r from-purple-900 via-pink-900 to-black hover:from-pink-900 hover:via-purple-900 hover:to-black rounded-full p-3 flex gap-x-2">
+                    <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-800 hover:via-purple-900 hover:to-black rounded-full p-3 flex gap-x-2">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -39,7 +38,7 @@
                     <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
                         @forelse ($peliculas as $pelicula)
                             <a href="{{ route('movie.show', $pelicula) }}">
-                                <div class="w-40 bg-white shadow border border-pink-200 mb-3">
+                                <div class="w-40 bg-white shadow border border-gray-500 hover:border-white mb-3">
                                     {{-- image of profile of actor --}}
                                     <div>
                                         <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $pelicula->images()->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">

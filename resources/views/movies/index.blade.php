@@ -4,7 +4,7 @@
             <div class="overflow-hidden shadow-sm">
                 <div class="grid grid-cols-4">
                     @forelse ($movies as $movie)
-                        <div class="w-64  shadow-lg shadow-gray-500/50  border border-gray-700">
+                        <div class="w-64 border border-gray-500 hover:border-white">
                         <div class="h-96 w-full object-conver flex flex-col justify-between  items-start p-4 bg-cover bg-center"
                             style="background-image: url(' {{ asset('storage/perfil/' . $movie->images()->where('destination', 'perfil')->pluck('url')->first()) }}')">
                             <div class="w-8 h-9  rounded flex items-center justify-center text-purple-400 hover:text-pink-400">
@@ -21,7 +21,7 @@
                         </div>
                         <a href="{{ route('movie.show', $movie) }}">
                             <div
-                                class="p-4 bg-gradient-to-r from-purple-900 to-black text-white hover:from-pink-900 hover:to-black">
+                                class="p-4 bg-black hover:bg-gradient-to-r  hover:from-red-900 hover:via-black hover:to-black text-white">
                                 <h1 class="truncate font-medium text-center capitalize">
                                     {{ $movie->name }}
                                 </h1>

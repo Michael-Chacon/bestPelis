@@ -1,6 +1,6 @@
 <div>
     <div x-data="{ modelMovie: false }">
-        <button @click="modelMovie =!modelMovie">
+        <button @click="modelMovie =!modelMovie" class="flex ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
         </svg>
@@ -25,7 +25,7 @@
                     x-transition:leave="transition ease-in duration-200 transform"
                     x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
                     x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left bg-gradient-to-r from-purple-900 to-black transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                    class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left bg-gradient-to-r from-red-900 via-black to-black transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
                     <div class="flex items-center justify-between space-x-4">
                         <h1 class="text-xl font-medium text-gray-200 ">Registrar una nueva peliculaa</h1>
     

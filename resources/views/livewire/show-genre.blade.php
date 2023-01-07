@@ -1,8 +1,8 @@
 <div>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-x-2">
+    <div class="grid grid-cols-2 md:grid-cols-1 gap-x-2">
         @forelse ($genres as $genero)
-            <div class="flex mb-2 justify-between items-center rounded-full py-1 px-4 font-medium border text-black bg-white border-black">
-                <span class="text-center">
+            <div class="bg-gradient-to-r from-red-900 via-black to-black text-white flex mb-2 justify-between items-center rounded-full py-1 px-4 font-medium border  border-white">
+                <span class="tracking-widest text-sm">
                     {{ $genero->name }}
                 </span>
                 <span class="hover:text-red-500">
