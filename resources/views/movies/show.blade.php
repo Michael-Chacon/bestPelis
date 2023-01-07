@@ -21,14 +21,8 @@
                             <div class=" bg-gradient-to-r from-purple-900 via-pink-900 to-black hover:from-pink-900 hover:via-purple-900 hover:to-black rounded-full p-3 gap-x-2">
                                 <livewire:like-movie :movie="$movie"/>
                             </div>
-                            <div
-                                class="bg-gradient-to-r from-purple-900 via-black to-pink-900 hover:from-pink-900 hover:via-purple-900 hover:to-black rounded-full p-3">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                    </svg>
-                                </a>
+                            <div class="bg-gradient-to-r from-purple-900 via-black to-pink-900 hover:from-pink-900 hover:via-purple-900 hover:to-black rounded-full p-3">
+                                <livewire:favorite-movie :movie="$movie" />
                             </div>
                         </section>
                         <article>
