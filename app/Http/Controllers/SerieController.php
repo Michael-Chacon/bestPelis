@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,12 @@ class SerieController extends Controller
 
     public function show(Serie $serie)
     {
+        $actores = $serie->actors;
+        $generos = $serie->genres;
         return view('series.show', [
-            'serie' => $serie
+            'serie' => $serie, 
+            'actores' => $actores,
+            'generos' => $generos,
         ]);
     }
 }

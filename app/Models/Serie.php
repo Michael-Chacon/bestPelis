@@ -20,6 +20,8 @@ class Serie extends Model
         'user_id'
     ];
 
+    protected $dates = ['premiere'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
