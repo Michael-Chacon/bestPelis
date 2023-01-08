@@ -47,9 +47,14 @@
 
             </article>
         </section>
-        <section class="mt-5 grid">
-            <h2 class="text-2xl  text-gray-300 text-center">Ultimas peliculas registradas</h2>  
+        <section class="mt-10 grid">
+            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas peliculas registradas</h2>  
                 <livewire:show-movie/>
+            
+        </section>
+        <section class="mt-10 grid">
+            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas series registradas</h2>  
+                <livewire:latest-series/>
             
         </section>
     </div>
