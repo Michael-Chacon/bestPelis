@@ -10,7 +10,6 @@ use Livewire\WithFileUploads;
 
 class CreatePeli extends Component
 {
-    public $fotoActor;
     public $perfil;
     public $portada;
     public $name;

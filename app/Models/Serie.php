@@ -9,6 +9,17 @@ class Serie extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'nameEn',
+        'premiere',
+        'sinopsis',
+        'score',
+        'seasons',
+        'status',
+        'user_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
