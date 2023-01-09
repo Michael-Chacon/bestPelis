@@ -17,14 +17,14 @@
                                 </svg>
                                 <span class="text-sm">{{ $serie->score }} /<small>10</small></span>
                             </div>
-                            {{-- @auth    
+                            @auth    
                                 <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-3 gap-x-2">
                                     <livewire:like-serie :serie="$serie"/>
                                 </div>
-                                <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
+                                {{-- <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
                                     <livewire:favorite-serie :serie="$serie" />
-                                </div>
-                            @endauth --}}
+                                </div> --}}
+                            @endauth
                         </section>
                         <article>
                             <div class="p-4">
