@@ -63,4 +63,9 @@ class Serie extends Model
     {
         return $this->likes->contains('user_id', $user->id);
     }
+
+    public function checkFavoriteSerie(User $user)
+    {
+        return $this->favorites->contains('user_id', $user->id);
+    }
 }

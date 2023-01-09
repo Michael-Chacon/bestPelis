@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class LatestSeries extends Component
 {
+    protected $listeners = ['render'];
     public function render()
     {
         $series = Serie::latest()->limit(6)->get();
