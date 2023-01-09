@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class SerieController extends Controller
 {
     public function index(){
-        $serie = Serie::find(1);
-        return view('series.index', compact('serie'));
+        $series = Serie::latest()->get();
+        return view('series.index', compact('series'));
     }
 
     public function show(Serie $serie)
