@@ -53,7 +53,10 @@
         <section class="mt-10 grid">
             <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas series registradas</h2>  
                 <livewire:latest-series/>
-            
+        </section>
+        <section class="mt-10 grid">
+            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimos animes registrados</h2>  
+                <livewire:latest-animes/>
         </section>
     </div>
   
