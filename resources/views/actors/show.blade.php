@@ -33,17 +33,17 @@
                     {{ $actor->biografia }}
                 </p>
                 <article class="mt-8">
-                    <h3 class="text-gray-400 tracking-widest text-2xl mb-5 text-center md:text-left">Peliculas donde actua</h3>
-                {{-- actores --}}
+                    <h3 class="text-gray-400 tracking-widest text-2xl mb-5 text-center md:text-left">Películas en las que actúa.</h3>
+                {{-- peliculas --}}
                     <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
                         @forelse ($peliculas as $pelicula)
                             <a href="{{ route('movie.show', $pelicula) }}">
                                 <div class="w-40 bg-white shadow border border-gray-500 hover:border-white mb-3">
-                                    {{-- image of profile of actor --}}
+                                    {{-- image of movie --}}
                                     <div>
                                         <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $pelicula->images()->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">
                                     </div>
-                                    {{-- data of actor --}}
+                                    {{-- data of movie --}}
                                     <div class="p-4 bg-black">
                                         <p class="text-white  text-center text-sm my-1 truncate">
                                             {{ $pelicula->name }}
@@ -53,7 +53,33 @@
                             </a>
                         @empty
                             <p class="text-white text center">
-                                No hay actores
+                                No hay peliculas
+                            </p>
+                        @endforelse
+                    </div>
+                </article>
+                <article class="mt-8">
+                    <h3 class="text-gray-400 tracking-widest text-2xl mb-5 text-center md:text-left">Series en las que actúa.</h3>
+                {{-- series --}}
+                    <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-2">
+                        @forelse ($series as $serie)
+                            <a href="{{ route('series.show', $serie) }}">
+                                <div class="w-40 bg-white shadow border border-gray-500 hover:border-white mb-3">
+                                    {{-- image of serie --}}
+                                    <div>
+                                        <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $serie->images()->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">
+                                    </div>
+                                    {{-- data of serie --}}
+                                    <div class="p-4 bg-black">
+                                        <p class="text-white  text-center text-sm my-1 truncate">
+                                            {{ $serie->name }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @empty
+                            <p class="text-white text center">
+                                No hay series
                             </p>
                         @endforelse
                     </div>
