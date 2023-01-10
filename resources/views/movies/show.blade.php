@@ -25,18 +25,7 @@
                                     <livewire:favorite-movie :movie="$movie" />
                                 </div>
                             @endauth
-                        </section>
-                        <article>
-                            <div class="p-4">
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                    <x-primary-button class="w-full bg-purple-900 mt-2">
-                                        <span class="text-center">
-                                            {{ __('Comment') }}
-                                        </span>
-                                    </x-primary-button>
-                                </div>
-                        </article>    
+                        </section>   
                 </article>
                 <article class="col-span-4 md:col-span-3 pt-5 text-white">
                     <h1 class="text-5xl capitalize">{{ $movie->name }}<span class="text-xl text-gray-500"> ({{ $movie->premiere->format('Y') }})</span></h1>
@@ -95,6 +84,16 @@
                                 @endforelse
                             </div>
                         </article>
+                        <article>
+                            @auth
+                                <div class="p-4">
+                                    <livewire:create-comment :modelo="$movie"/>
+                                </div>
+                            @endauth
+                            <section class="mt-5 grid justify-center items-center">
+                                <livewire:show-comments :modelo="$movie"/>
+                            </section>
+                        </article> 
                 </article>
             </section>
         </div>
