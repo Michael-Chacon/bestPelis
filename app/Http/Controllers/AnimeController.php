@@ -15,8 +15,8 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $anime = Anime::find(1);
-        return view('animes.index', compact('anime'));
+        $animes = Anime::latest()->get();
+        return view('animes.index', compact('animes'));
     }
 
     /**
@@ -48,7 +48,7 @@ class AnimeController extends Controller
      */
     public function show(Anime $anime)
     {
-        $generos = Genre::pluck('name', 'id');
+        $generos = $anime->genres;
         return view('animes.show', compact('anime', 'generos'));
     }
 

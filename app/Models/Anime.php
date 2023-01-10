@@ -16,6 +16,9 @@ class Anime extends Model
         'status',
         'user_id'
     ];
+
+    protected $dates = ['premiere'];
+
     use HasFactory;
 
     public function user()
@@ -49,5 +52,15 @@ class Anime extends Model
     public function favorites()
     {
         return $this->morphMany(Favorite::class, 'favoriteable');
+    }
+
+    public function checkLikeAnime(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
+
+    public function checkFavoriteAnime(User $user)
+    {
+        return $this->favorites->contains('user_id', $user->id);
     }
 }
