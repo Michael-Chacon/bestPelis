@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anime extends Model
 {
+    protected $fillable = [
+        'name',
+        'premiere',
+        'sinopsis',
+        'score', 
+        'seasons',
+        'status',
+        'user_id'
+    ];
     use HasFactory;
 
     public function user()
