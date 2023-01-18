@@ -31,4 +31,9 @@ class Genre extends Model
         return $this->morphedByMany(Serie::class, 'genreable');
     }
 
+    public function podcasts()
+    {
+        return $this->morphedByMany(Anime::class, 'genreable');
+    }
+
 }

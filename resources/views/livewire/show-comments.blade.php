@@ -1,7 +1,7 @@
 <div>
     @forelse ($comentarios as $comentario)
-    <article class="grid grid-cols-4 p-3 items-center border border-gray-500 mb-5 rounded-xl">
-        <section class="col-span-3">
+    <article class="grid grid-cols-4 p-3  w-full items-center border border-gray-500 mb-5 rounded-xl">
+        <section class="col-span-3 w-full">
             <h3 class="text-sm flex gap-x-1 items-center text-teal-500 capitalize">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z" clip-rule="evenodd" />
@@ -11,7 +11,7 @@
             <h2 class="text-white text-lg ml-5">{{ $comentario->comment }}</h2>
             <small class="ml-5 text-purple-400" >{{ $comentario->created_at->diffForHumans() }}</small>
         </section>  
-        <section class="col-span-1 flex justify-end hover:text-red-500">
+        <section class="col-span-1 flex justify-end text-white hover:text-red-500">
             @if ($comentario->user_id == auth()->user()->id)
                 <button wire:click="$emit('mostrarAlerta', {{ $comentario}})">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
