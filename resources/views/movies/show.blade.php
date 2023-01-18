@@ -90,7 +90,7 @@
                                     <livewire:create-comment :modelo="$movie"/>
                                 </div>
                             @endauth
-                            <section class="mt-5 grid justify-center items-center">
+                            <section class="mt-5 mx-10">
                                 <livewire:show-comments :modelo="$movie"/>
                             </section>
                         </article> 

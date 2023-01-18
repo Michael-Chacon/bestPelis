@@ -100,16 +100,13 @@
                     </iframe> 
                 </section>
                 <section class="col-span-2 md:col-span-1">
-                   <span class="text-white">
-                    {{ $podcast->comments }}
-                </span> 
                     <article>
                         @auth
                             <div class="p-4">
                                 <livewire:create-comment :modelo="$podcast"/>
                             </div>
                         @endauth
-                        <section class="mt-5 grid justify-center items-center">
+                        <section class="mt-5 mx-10">
                             <livewire:show-comments :modelo="$podcast"/>
                         </section>
                     </article>

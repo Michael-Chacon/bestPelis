@@ -22,12 +22,14 @@ class CreateComment extends Component
         $datos = $this->validate();
         // dd($this->modelo);
         $this->modelo->comments()->create(['comment' => $datos['comment'], 'user_id' => auth()->user()->id]);
-        $this->reset();
         $this->emit('showComment');
+        $this->reset('comment');
     }
 
     public function render()
     {
-        return view('livewire.create-comment');
+        return view('livewire.create-comment', [
+            'modelos' => $this->modelo,
+        ]);
     }
 }

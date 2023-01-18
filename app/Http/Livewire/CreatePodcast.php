@@ -35,7 +35,7 @@ class CreatePodcast extends Component
     public function savePodcast()
     {
         $datos = $this->validate();
-
+        $limpio = array_filter($datos['genres']);
         $podcast = Podcast::create([
             'name' => $datos['name'],
             'description' => $datos['description'], 
@@ -47,7 +47,7 @@ class CreatePodcast extends Component
             'user_id' => auth()->user()->id,
         ]);
         
-        $podcast->genres()->attach($datos['genres']);
+        $podcast->genres()->attach($limpio);
 
         $perfil = $this->perfil->store('public/perfil');
         $name_perfil  = str_replace('public/perfil/', '', $perfil);
