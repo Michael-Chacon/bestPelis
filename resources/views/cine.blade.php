@@ -1,16 +1,16 @@
 <x-app-layout>
     <section class="bg-gradient-to-r from-red-900 via-black to-black border-t border-gray-500 mb-10">
         <article class="grid grid-cols-2 md:justify-center md:items-start py-10 px-5">
-            <section class="col-span-1 text-center">
-                <h2 class="text-6xl text-white font-thin">
+            <section class="col-span-2 md:col-span-1 text-center">
+                <h2 class="text-3xl md:text-6xl text-white font-thin">
                     ¿No sabes que ver?
                 </h2>
-                <p class="mt-5 px-5 text-xl text-gray-200">
+                <p class="mt-5 px-5 text-md md:text-lg text-gray-200">
                      Acá podrás encontrar una selecta lista de películas, series, anime que te recomendamos y si no quieres ver nada, pues puedes echarle un vistazo al listado de pódcast 
                 </p>
             </section>
-            <section class="col-span-1 flex justify-center">
-                <img class="h-52" src="{{ asset('storage/ilustraciones/portada.svg') }}" alt="Imagen de portada">
+            <section class="col-span-2 md:col-span-1 flex justify-center">
+                <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/portada.svg') }}" alt="Imagen de portada">
             </section>
         </article>
 
@@ -21,17 +21,17 @@
             </svg>
         </div>
         <article class="grid grid-cols-2 bg-white px-5 pb-10 items-center">
-            <section class="col-span-1 flex justify-center">
-                <img class="h-52" src="{{ asset('storage/ilustraciones/movies.svg') }}" alt="">
+            <section class="col-span-2 md:col-span-1 flex justify-center order-2 md:order-1">
+                <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/movies.svg') }}" alt="">
             </section>
-            <section class="col-span-1 text-center">
-                <h2 class="text-4xl">
+            <section class="col-span-2 md:col-span-1 text-center order-1 md:order-2 mb-5 md:mb-0">
+                <h2 class="text-2xl md:text-4xl">
                     Movies
                 </h2>
-                <p class="text-xl px-5 mt-5 mb-5">
+                <p class="text-sm md:text-lg px-5 mt-5 mb-5">
                     Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
                 </p>
-                <a href="{{ route('movie.index') }}" class="text-center text-blue-500 underline decoration-blue-400">
+                <a href="{{ route('movie.index') }}" class="text-center text-blue-500 underline decoration-blue-400 text-sm md:text-md">
                     Listado de pelis
                 </a>
             </section>
@@ -69,19 +69,19 @@
                 </svg>
             </div>
             <article class="grid grid-cols-2 bg-pink-600 px-5 pb-10 items-center">
-                <section class="col-span-1 text-center">
-                    <h2 class="text-4xl text-white">
+                <section class="col-span-2 md:col-span-1 text-center mb-5">
+                    <h2 class="text-2xl md:text-4xl text-white">
                         Series
                     </h2>
-                    <p class="text-xl px-5 mt-5 mb-5 text-gray-200">
+                    <p class="text-sm md:text-xl px-5 mt-5 mb-5 text-gray-200">
                         Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
                     </p>
-                    <a href="{{ route('series.index') }}" class="text-center text-black underline decoration-black">
+                    <a href="{{ route('series.index') }}" class="text-center text-black underline decoration-black text-sm md:text-lg">
                         Listado de pelis
                     </a>
                 </section>
-                <section class="col-span-1 flex justify-center">
-                    <img class="h-52" src="{{ asset('storage/ilustraciones/series.svg') }}" alt="">
+                <section class="col-span-2 md:col-span-1 flex justify-center">
+                    <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/series.svg') }}" alt="">
                 </section>
             </article>
             <section class="bg-pink-600 flex gap-x-5 h-full overflow-x-scroll scroll-smooth snap-x scroll-pl-6 px-5">
@@ -117,17 +117,17 @@
                 </svg>
             </div>
             <article class="grid grid-cols-2 bg-purple-600 px-5 pb-10 items-center">
-                <section class="col-span-1 flex justify-center">
-                    <img class="h-52" src="{{ asset('storage/ilustraciones/anime.svg') }}" alt="">
+                <section class="col-span-2 md:col-span-1 flex justify-center order-2 md:order-1 ">
+                    <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/anime.svg') }}" alt="">
                 </section>
-                <section class="col-span-1 text-center">
-                    <h2 class="text-4xl text-white">
+                <section class="col-span-2 md:col-span-1 order-1 md:order-2 text-center mb-5 md:mb-0">
+                    <h2 class="text-2xl md:text-4xl text-white">
                         Animes
                     </h2>
-                    <p class="text-xl px-5 mt-5 mb-5 text-gray-200">
+                    <p class="text-sm md:text-xl px-5 mt-5 mb-5 text-gray-200">
                         Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
                     </p>
-                    <a href="{{ route('anime.index') }}" class="text-center text-white underline decoration-white">
+                    <a href="{{ route('anime.index') }}" class="text-center text-white underline decoration-white text-sm md:text-xl">
                         Listado de Animes
                     </a>
                 </section>
@@ -165,10 +165,7 @@
                 </svg>
             </div>
             <article class="grid grid-cols-2 bg-black px-5 pb-10 items-center">
-                <section class="col-span-1 flex justify-center">
-                    <img class="h-52" src="{{ asset('storage/ilustraciones/podcasts.svg') }}" alt="">
-                </section>
-                <section class="col-span-1 text-center">
+                <section class="col-span-2 md:col-span-1 text-center">
                     <h2 class="text-4xl text-white">
                         Podcasts
                     </h2>
@@ -178,6 +175,9 @@
                     <a href="{{ route('anime.index') }}" class="text-center text-white underline decoration-white">
                         Listado de Podcast
                     </a>
+                </section>
+                <section class="col-span-2 md:col-span-1 flex justify-center">
+                    <img class="h-52" src="{{ asset('storage/ilustraciones/podcasts.svg') }}" alt="">
                 </section>
             </article>
     </section>
