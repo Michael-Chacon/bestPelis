@@ -3,6 +3,7 @@
 use App\Models\Anime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\PodcastController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('cine');
-})->name('cine');
+Route::get('/', [HomeController::class, 'index'])->name('cine');
 
 Route::get('series', [SerieController::class, 'index'])->name('series.index');
 Route::get('series/show/{serie}', [SerieController::class, 'show'])->name('series.show');
