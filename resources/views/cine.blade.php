@@ -76,7 +76,7 @@
                     <p class="text-sm md:text-xl px-5 mt-5 mb-5 text-gray-200">
                         Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
                     </p>
-                    <a href="{{ route('series.index') }}" class="text-center text-black underline decoration-black text-sm md:text-lg">
+                    <a href="{{ route('series.index') }}" class="text-center text-black underline decoration-black text-sm md:text-md">
                         Listado de pelis
                     </a>
                 </section>
@@ -127,7 +127,7 @@
                     <p class="text-sm md:text-xl px-5 mt-5 mb-5 text-gray-200">
                         Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
                     </p>
-                    <a href="{{ route('anime.index') }}" class="text-center text-white underline decoration-white text-sm md:text-xl">
+                    <a href="{{ route('anime.index') }}" class="text-center text-white underline decoration-white text-sm md:text-md">
                         Listado de Animes
                     </a>
                 </section>
