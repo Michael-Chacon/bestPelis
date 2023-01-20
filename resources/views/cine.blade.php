@@ -1,25 +1,27 @@
 <x-app-layout>
-    <section class="bg-gradient-to-r from-red-900 via-black to-black border-t border-gray-500 mb-10">
-        <article class="grid grid-cols-2 md:justify-center md:items-start py-10 px-5">
-            <section class="col-span-2 md:col-span-1 text-center">
-                <h2 class="text-3xl md:text-6xl text-white font-thin">
-                    ¿No sabes que ver?
-                </h2>
-                <p class="mt-5 px-5 text-md md:text-lg text-gray-200">
-                     Acá podrás encontrar una selecta lista de películas, series, anime que te recomendamos y si no quieres ver nada, pues puedes echarle un vistazo al listado de pódcast 
-                </p>
-            </section>
-            <section class="col-span-2 md:col-span-1 flex justify-center">
-                <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/portada.svg') }}" alt="Imagen de portada">
-            </section>
-        </article>
+    <section class="border-t border-gray-500 mb-10">
+        <header style=" background: linear-gradient(to top, #7B1C1C, hsla(0, 0%, 0%, 0.664)), url('{{ asset('storage/ilustraciones/principal.PNG') }}');   background-attachment: fixed; position: relative; height: 400px;">
+            <article class="grid grid-cols-2 md:justify-center md:items-start py-20 px-5">
+                <section class="col-span-2 md:col-span-1 text-center">
+                    <h2 class="text-3xl md:text-6xl text-white font-thin">
+                        ¿No sabes que ver?
+                    </h2>
+                    <p class="mt-5 px-5 text-md md:text-lg text-gray-200">
+                        Acá podrás encontrar una selecta lista de películas, series, anime que te recomendamos y si no quieres ver nada, pues puedes echarle un vistazo al listado de pódcast 
+                    </p>
+                </section>
+                <section class="col-span-2 md:col-span-1 flex justify-center">
+                    <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/portada.svg') }}" alt="Imagen de portada">
+                </section>
+            </article>
+        </header>
 
-        <div style="height: 100px; overflow: hidden;" >
+        {{-- <div style="height: 90px; overflow: visivility;" >
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C385.15,163.33 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;">
                 </path>
             </svg>
-        </div>
+        </div> --}}
         <article class="grid grid-cols-2 bg-white px-5 pb-10 items-center">
             <section class="col-span-2 md:col-span-1 flex justify-center order-2 md:order-1">
                 <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/movies.svg') }}" alt="">
