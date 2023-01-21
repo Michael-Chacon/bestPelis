@@ -136,10 +136,18 @@
                     <a href="{{ route('movie.show', $pelicula) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $pelicula->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow-xl">
-                        <p class="text-black font-light text-sm text-center tracking-widest">
+                    <div class="p-4 flex justify-center shadow-xl gap-x-5">
+                        <p class="text-black font-light text-sm  tracking-widest">
                             {{ $pelicula->name }}
                         </p>
+                        <span class="text-sm flex ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-gray-400">
+                                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                             </svg>
+                             <span>
+                                 {{ $pelicula->score }}/<small>10</small>
+                            </span>
+                        </span>
                     </div>
                 </a>
                 </div>
@@ -185,10 +193,18 @@
                     <a href="{{ route('series.show', $serie) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $serie->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow-xl bg-pink-900 ">
+                    <div class="p-4 flex justify-center items-center gap-x-5 shadow-xl bg-pink-900 ">
                         <p class="text-white font-light text-sm text-center tracking-widest">
                             {{ $serie->name }}
                         </p>
+                        <span class="text-sm flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-gray-300">
+                                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                             </svg>
+                             <span class="text-white">
+                                 {{ $serie->score }}/<small>10</small>
+                            </span>
+                        </span>
                     </div>
                 </a>
                 </div>
@@ -234,10 +250,18 @@
                     <a href="{{ route('anime.show', $anime) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $anime->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow-xl bg-purple-900">
+                    <div class="p-4 flex justify-center items-center gap-x-5 shadow-xl bg-purple-900">
                         <p class="text-white font-light text-sm text-center tracking-widest">
                             {{ $anime->name }}
                         </p>
+                        <span class="text-sm flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-gray-300">
+                                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                             </svg>
+                             <span class="text-white">
+                                 {{ $anime->score }}/<small>10</small>
+                            </span>
+                        </span>
                     </div>
                 </a>
                 </div>

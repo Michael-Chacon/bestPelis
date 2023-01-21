@@ -34,7 +34,7 @@ class Podcast extends Model
     // Relaciones polimorificas uno a muchso 
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')->with('user');
     }
 
     public function images()
