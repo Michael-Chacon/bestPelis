@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="overflow-hidden shadow-sm ">
         <section class="grid grid-cols-1 ">
-            <img class="object-cover object-top  h-96 w-full" src="{{ asset('storage/portada/' . $anime->images()->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
+            <img class="object-cover object-top  h-96 w-full" src="{{ asset('storage/portada/' . $anime->images->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
         </section>
         <div class="container mx-auto">
             <section class="grid grid-cols-4 mb-10 gap-x-4">
                 <article class="col-span-4 md:col-span-1">
-                    <img class="md:-mt-48  w-0 md:w-80  border border-gray-500 rounded-xl mb-5 "src="{{ asset('storage/perfil/' . $anime->images()->where('destination', 'perfil')->pluck('url')->first()) }}"
+                    <img class="md:-mt-48  w-0 md:w-80  border border-gray-500 rounded-xl mb-5 "src="{{ asset('storage/perfil/' . $anime->images->where('destination', 'perfil')->pluck('url')->first()) }}"
                         alt="">
                         <section class="flex justify-center mb-3">
                             @if ($anime->status === 'si')

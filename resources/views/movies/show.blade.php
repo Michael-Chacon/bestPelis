@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="overflow-hidden shadow-sm ">
         <section class="grid grid-cols-1 ">
-            <img class="object-cover object-bottom hover:object-top h-96 w-full" src="{{ asset('storage/portada/' . $movie->images()->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
+            <img class="object-cover object-bottom hover:object-top h-96 w-full" src="{{ asset('storage/portada/' . $movie->images->where('destination', 'portada')->pluck('url')->first()) }}" alt="">
         </section>
         <div class="container mx-auto">
             <section class="grid grid-cols-4 mb-10 gap-x-4">

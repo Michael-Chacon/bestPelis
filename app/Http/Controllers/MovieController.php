@@ -15,7 +15,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movie = Movie::latest()->get();
+        $movie = Movie::with('images', 'likes')->orderByDesc('score')->get();
         return view('movies.index', [
             'movies' => $movie,
         ]);

@@ -14,7 +14,7 @@ class LikeSerie extends Component
     public function mount($serie)
     {
         $this->isLike = $serie->checkLikeSerie(auth()->user());
-        $this->like = $serie->likes()->count();
+        $this->like = $serie->likes->count();
     }
 
     public function likeSerie()

@@ -3,8 +3,11 @@
         <div class="container mx-auto mt-5">
             <section class="grid grid-cols-4 mb-10 gap-x-4">
                 <article class="col-span-4 md:col-span-2">
-                    <img class="border border-gray-500 rounded-xl mb-5 h-96 w-full object-cover"src="{{ asset('storage/perfil/' . $podcast->images()->where('destination', 'perfil')->pluck('url')->first()) }}"
+                    <img class="border border-gray-500 rounded-xl mb-5 h-96 w-full object-cover"src="{{ asset('storage/perfil/' . $podcast->images->where('destination', 'perfil')->pluck('url')->first()) }}"
                         alt="">
+                        @php
+                            // dd($podcast->images->pluck('url')->first());
+                        @endphp
                         <section class="flex justify-center mb-3">
                             @if ($podcast->status === 'si')
                                 <p class="flex border border-gray-500 w-full py-2 gap-x-3 justify-center text-green-500">
@@ -47,7 +50,7 @@
                             {{ $podcast->chapters }} @choice('Capitulo|Capitulos', $podcast->chapters ) 
                         </span>
                         •
-                        @forelse ($generos as $genre)
+                        @forelse ($podcast->genres as $genre)
                             <a href="{{ $genre->id }}"class="text-blue-400 hover:text-white hover:border-b hover:border-pink-600">
                                 {{ $genre->name }} 
                             </a>

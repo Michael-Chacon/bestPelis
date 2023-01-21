@@ -13,7 +13,7 @@ class LikeAnime extends Component
     public function mount($anime)
     {
         $this->isLike = $anime->checkLikeAnime(auth()->user());
-        $this->like = $anime->likes()->count();
+        $this->like = $anime->likes->count();
     }
 
     public function likeAnime()

@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\Anime;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\PodcastController;
@@ -19,6 +20,10 @@ use App\Http\Controllers\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// DB::listen(function($query){
+//     var_dump($query->sql);
+// });
 
 Route::get('/', [HomeController::class, 'index'])->name('cine');
 

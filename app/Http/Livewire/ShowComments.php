@@ -8,6 +8,7 @@ use Livewire\Component;
 class ShowComments extends Component
 {
     public $modelo;
+
     protected $listeners = ['showComment' => 'render', 'eliminarComentario', 'tal' => 'render'];
 
     public function eliminarComentario(Comment $comentario)

@@ -6,7 +6,7 @@
                     @forelse ($series as $serie)
                         <div class="w-56 mb-2 border border-gray-500 hover:border-white">
                         <div class="h-80  object-conver flex flex-col justify-between  items-start p-4 bg-cover bg-center"
-                            style="background-image: url(' {{ asset('storage/perfil/' . $serie->images()->where('destination', 'perfil')->pluck('url')->first()) }}')">
+                            style="background-image: url(' {{ asset('storage/perfil/' . $serie->images->where('destination', 'perfil')->pluck('url')->first()) }}')">
                             <div class="w-8 h-9  rounded flex items-center justify-center text-purple-400 hover:text-pink-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
