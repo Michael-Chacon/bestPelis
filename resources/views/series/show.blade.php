@@ -55,7 +55,7 @@
                                 </div>
                         </article>    
                 </article>
-                <article class="col-span-4 md:col-span-3 pt-5 text-white">
+                <article class="col-span-4 md:col-span-3 pt-5 text-white px-3">
                     <h1 class="text-5xl capitalize">{{ $serie->name }}<span class="text-xl text-gray-500"> ({{ $serie->premiere->format('Y') }})</span></h1>
                     <section class="flex gap-x-5">
                         <span class="text-gray-400 capitalize">

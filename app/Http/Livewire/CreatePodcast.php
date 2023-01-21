@@ -30,6 +30,7 @@ class CreatePodcast extends Component
         'status' => 'required',
         'authors' => 'required',
         'genres' => 'required',
+        'perfil' => 'required',
     ];
 
     public function savePodcast()

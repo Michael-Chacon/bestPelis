@@ -27,7 +27,7 @@
                             @endauth
                         </section>   
                 </article>
-                <article class="col-span-4 md:col-span-3 pt-5 text-white">
+                <article class="col-span-4 md:col-span-3 pt-5 text-white px-3">
                     <h1 class="text-5xl capitalize">{{ $movie->name }}<span class="text-xl text-gray-500"> ({{ $movie->premiere->format('Y') }})</span></h1>
                     {{-- premiere, genre  --}}
                     <span class="flex gap-x-2 mt-2 mb-2">

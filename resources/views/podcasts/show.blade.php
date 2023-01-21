@@ -3,7 +3,7 @@
         <div class="container mx-auto mt-5">
             <section class="grid grid-cols-4 mb-10 gap-x-4">
                 <article class="col-span-4 md:col-span-2">
-                    <img class="border border-gray-500 rounded-xl mb-5 "src="{{ asset('storage/perfil/' . $podcast->images()->where('destination', 'perfil')->pluck('url')->first()) }}"
+                    <img class="border border-gray-500 rounded-xl mb-5 h-96 w-full object-cover"src="{{ asset('storage/perfil/' . $podcast->images()->where('destination', 'perfil')->pluck('url')->first()) }}"
                         alt="">
                         <section class="flex justify-center mb-3">
                             @if ($podcast->status === 'si')
@@ -23,7 +23,7 @@
                             @endif
                         </section>
                 </article>
-                <article class="col-span-4 md:col-span-2 pt-5 text-white">
+                <article class="col-span-4 md:col-span-2 pt-5 text-white px-3">
                     <h1 class="text-3xl  text-center  lg:text-5xl md:text-left capitalize ">{{ $podcast->name }}</h1>
                         <a target="_blank" class="flex items-center text-md tracking-widest gap-x-2 text-green-400" href="{{ $podcast->url }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
