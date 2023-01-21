@@ -91,6 +91,16 @@
                             </p>
                         </section>
                     </div>
+                    <article>
+                        @auth
+                            <div class="p-4">
+                                <livewire:create-comment :modelo="$anime"/>
+                            </div>
+                        @endauth
+                        <section class="mt-5 mx-10">
+                            <livewire:show-comments :modelo="$anime"/>
+                        </section>
+                    </article>
                 </article>
             </section>
         </div>

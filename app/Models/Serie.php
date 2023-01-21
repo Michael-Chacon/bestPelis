@@ -30,7 +30,7 @@ class Serie extends Model
     // Relaciones polimorificas uno a muchso 
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')->latest()->with('user');;
     }
 
     // Relación polimorfica muchos a muchos 

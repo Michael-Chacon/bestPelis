@@ -42,18 +42,7 @@
                                     <livewire:favorite-serie :serie="$serie" />
                                 </div>
                             @endauth
-                        </section>
-                        <article>
-                            <div class="p-4">
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                    <x-primary-button class="w-full bg-purple-900 mt-2">
-                                        <span class="text-center">
-                                            {{ __('Comment') }}
-                                        </span>
-                                    </x-primary-button>
-                                </div>
-                        </article>    
+                        </section>    
                 </article>
                 <article class="col-span-4 md:col-span-3 pt-5 text-white px-3">
                     <h1 class="text-5xl capitalize">{{ $serie->name }}<span class="text-xl text-gray-500"> ({{ $serie->premiere->format('Y') }})</span></h1>
@@ -121,6 +110,16 @@
                                     </p>
                                 @endforelse
                             </div>
+                        </article>
+                        <article>
+                            @auth
+                                <div class="p-4">
+                                    <livewire:create-comment :modelo="$serie"/>
+                                </div>
+                            @endauth
+                            <section class="mt-5 mx-10">
+                                <livewire:show-comments :modelo="$serie"/>
+                            </section>
                         </article>
                 </article>
             </section>
