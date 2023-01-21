@@ -10,7 +10,7 @@ class LatestSeries extends Component
     protected $listeners = ['render'];
     public function render()
     {
-        $series = Serie::latest()->limit(6)->get();
+        $series = Serie::with('images')->latest()->limit(6)->get();
         return view('livewire.latest-series', compact('series'));
     }
 }

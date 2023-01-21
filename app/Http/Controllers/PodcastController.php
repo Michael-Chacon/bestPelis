@@ -9,7 +9,7 @@ class PodcastController extends Controller
 {
     public function index()
     {
-        $podcasts = Podcast::with('images', 'genres')->get();
+        $podcasts = Podcast::with('genres', 'images')->get();
         return view('podcasts.index', compact('podcasts'));
     }
 

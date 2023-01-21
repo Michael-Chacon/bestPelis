@@ -134,7 +134,7 @@
             @forelse ($peliculas as $pelicula )
                 <div class="w-96 bg-white shadow-lg rounded  scroll-ml-6 snap-center mb-5">
                     <a href="{{ route('movie.show', $pelicula) }}">
-                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $pelicula->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
+                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $pelicula->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
                     <div class="p-4 flex flex-col items-center shadow-xl">
                         <p class="text-black font-light text-sm text-center tracking-widest">
@@ -183,7 +183,7 @@
                 @forelse ($series as $serie )
                 <div class="w-96 bg-white shadow-lg rounded  scroll-ml-6 snap-center mb-5">
                     <a href="{{ route('series.show', $serie) }}">
-                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $serie->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
+                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $serie->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
                     <div class="p-4 flex flex-col items-center shadow-xl bg-pink-900 ">
                         <p class="text-white font-light text-sm text-center tracking-widest">
@@ -232,7 +232,7 @@
                 @forelse ($animes as $anime )
                 <div class="w-96 bg-white shadow-lg rounded  scroll-ml-6 snap-center mb-5">
                     <a href="{{ route('anime.show', $anime) }}">
-                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $anime->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
+                    <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $anime->images->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
                     <div class="p-4 flex flex-col items-center shadow-xl bg-purple-900">
                         <p class="text-white font-light text-sm text-center tracking-widest">

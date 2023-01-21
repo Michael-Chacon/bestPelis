@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $peliculas = Movie::latest()->limit(6)->get();
-        $series = Serie::latest()->limit(6)->get();
-        $animes = Anime::latest()->limit(6)->get();
+        $peliculas = Movie::with('images')->orderByDesc('score')->limit(6)->get();
+        $series = Serie::with('images')->orderByDesc('score')->limit(6)->get();
+        $animes = Anime::with('images')->orderByDesc('score')->limit(6)->get();
         return view('cine', compact('peliculas', 'series', 'animes'));
     }
 }

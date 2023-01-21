@@ -11,7 +11,7 @@ class ShowMovie extends Component
 
     public function render()
     {
-        $movies = Movie::latest()->limit(6)->get();
+        $movies = Movie::with('images')->latest()->limit(6)->get();
         return view('livewire.show-movie', [
             'movies' => $movies,
         ]);

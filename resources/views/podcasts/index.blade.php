@@ -11,9 +11,9 @@
                         <p class="text-white text-center text-3xl mb-2">
                             {{ $podcast->name }}
                         </p>
-                        @forelse ($podcast->genres()->pluck('name') as $genero)     
+                        @forelse ($podcast->genres->pluck('name') as $genero)     
                         <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-white">
-                            {{ $podcast->genres->pluck('name')->first() }}
+                            {{ $genero }} 
                         </span>
                         @empty
                             

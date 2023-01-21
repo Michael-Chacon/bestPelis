@@ -5,7 +5,7 @@
             <div class="w-40 bg-white shadow border border-white mb-3 ">
                 {{-- image of profile of actor --}}
                 <div>
-                    <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $podcast->images()->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">
+                    <img class="object-cover object-top" src="{{ asset('storage/perfil/'. $podcast->images->where('destination', 'perfil')->pluck('url')->first()) }}" alt="foto perfil">
                 </div>
                 {{-- data of actor --}}
                 <div class="p-4 bg-black">
