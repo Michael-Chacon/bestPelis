@@ -15,13 +15,75 @@
                 </section>
             </article>
         </header>
-
-        {{-- <div style="height: 90px; overflow: visivility;" >
+        <section class="grid grid-cols-4 justify-center text-white gap-2">
+            <article class="col-span-2 md:col-span-1">
+                <article class="p-8 w-full">
+                    <div class="flex justify-center items-center text-gray-500">
+                        <img class="h-24" src="{{ asset('storage/ilustraciones/like2.svg') }}" alt="">
+                    </div>
+                    <div class="text-center mt-4">
+                        <h1 class="font-thin tracking-wider">Me Gusta</h1>
+                        <p class="text-sm mt-4 tracking-wide text-justify lg:text-center">
+                            Deja tu like para indicar lo que viste y <span class="underline decoration-white">te gustó</span>, es una forma de calificar lo que viste
+                        </p>
+                    </div>
+                </article>
+            </article>
+            <article class="col-span-2 md:col-span-1">
+                <article class="p-8 w-full">
+                    <div class="flex justify-center items-center text-gray-500">
+                        <img class="h-24" src="{{ asset('storage/ilustraciones/favorite.svg') }}" alt="">
+                    </div>
+                    <div class="text-center mt-4">
+                        <h1 class="font-bold tracking-wider text-pink-600">Lista de farvoritas</h1>
+                        <p class="text-sm font-semibold mt-4 tracking-wide text-justify lg:text-center text-pink-600">
+                            Crea tu lista de <span class="underline decoration-pink-500">favoritos</span> para que marques lo que te faltan ver o que  quieras recordar.
+                        </p>
+                    </div>
+                </article>
+            </article>
+            <article class="col-span-2 md:col-span-1">
+                <article class="col-span-3 md:col-span-1">
+                    <article class="p-8 w-full">
+                        <div class="flex justify-center items-center text-gray-500">
+                            <img class="h-24" src="{{ asset('storage/ilustraciones/comments 2.svg') }}" alt="">
+                        </div>
+                        <div class="text-center mt-4">
+                            <h1 class="font-bold  tracking-wider text-purple-600">Comentarios</h1>
+                            <p class="text-sm mt-4 font-semibold tracking-wide text-justify lg:text-center text-purple-600">
+                                <span class="underline decoration-purple-500">Defiende o ataca</span> a muerte lo que has visto. No hagas spoiler, no seas mala persona
+                            </p>
+                        </div>
+                    </article>
+                </article>
+            </article>
+            <article class="col-span-2 md:col-span-1">
+                <article class="col-span-3 md:col-span-1">
+                    <article class="p-8 w-full">
+                        <div class="flex justify-center items-center text-gray-500">
+                            <img class="h-24" src="{{ asset('storage/ilustraciones/watched.svg') }}" alt="">
+                        </div>
+                        <div class="text-center mt-4">
+                            <h1 class="font-bold tracking-wider text-gray-400">Visto</h1>
+                            <p class="text-sm mt-4 font-semibold tracking-wide text-justify lg:text-center text-gray-400">
+                                Marca <span class="underline decoration-gray-500">lo que ya has visto</span> para que no repitas ;) y también para que los demás veamos tus gustos
+                            </p>
+                        </div>
+                    </article>
+                </article>
+            </article>
+        </section>
+        @guest
+            <article class="text-center">
+                <a href="{{ route('register') }}" class="text-white text-sm bg-red-900 p-2">Para acceder a estas funcionalidades debes registrarte en la página </a>
+            </article>
+        @endguest
+        <div style="height: 90px; overflow: visivility;" >
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C385.15,163.33 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;">
                 </path>
             </svg>
-        </div> --}}
+        </div>
         <article class="grid grid-cols-2 bg-white px-5 pb-10 items-center">
             <section class="col-span-2 md:col-span-1 flex justify-center order-2 md:order-1">
                 <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/movies.svg') }}" alt="">
@@ -44,7 +106,7 @@
                     <a href="{{ route('movie.show', $pelicula) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $pelicula->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow">
+                    <div class="p-4 flex flex-col items-center shadow-xl">
                         <p class="text-black font-light text-sm text-center tracking-widest">
                             {{ $pelicula->name }}
                         </p>
@@ -70,13 +132,14 @@
                     </path>
                 </svg>
             </div>
+            {{-- Series --}}
             <article class="grid grid-cols-2 bg-pink-600 px-5 pb-10 items-center">
                 <section class="col-span-2 md:col-span-1 text-center mb-5">
                     <h2 class="text-2xl md:text-4xl text-white">
                         Series
                     </h2>
                     <p class="text-sm md:text-xl px-5 mt-5 mb-5 text-gray-200">
-                        Échale un vistazo a nuestra biblioteca de sugerencias de películas, a ver si ya las viste todas :v
+                        Series clásicas y modernas, crees que lo has visto todo, pues échale un vistazo a estas tremendas series que te sugerimos
                     </p>
                     <a href="{{ route('series.index') }}" class="text-center text-black underline decoration-black text-sm md:text-md">
                         Listado de pelis
@@ -92,8 +155,8 @@
                     <a href="{{ route('series.show', $serie) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $serie->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow">
-                        <p class="text-black font-light text-sm text-center tracking-widest">
+                    <div class="p-4 flex flex-col items-center shadow-xl bg-pink-900 ">
+                        <p class="text-white font-light text-sm text-center tracking-widest">
                             {{ $serie->name }}
                         </p>
                     </div>
@@ -118,6 +181,7 @@
                     </path>
                 </svg>
             </div>
+            {{-- Animes --}}
             <article class="grid grid-cols-2 bg-purple-600 px-5 pb-10 items-center">
                 <section class="col-span-2 md:col-span-1 flex justify-center order-2 md:order-1 ">
                     <img class="h-40 md:h-52" src="{{ asset('storage/ilustraciones/anime.svg') }}" alt="">
@@ -140,8 +204,8 @@
                     <a href="{{ route('anime.show', $anime) }}">
                     <div class="h-44 w-96 bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center" style="background-image: url('{{ asset('storage/portada/'. $anime->images()->where('destination', 'portada')->pluck('url')->first()) }}')">
                     </div>
-                    <div class="p-4 flex flex-col items-center shadow">
-                        <p class="text-black font-light text-sm text-center tracking-widest">
+                    <div class="p-4 flex flex-col items-center shadow-xl bg-purple-900">
+                        <p class="text-white font-light text-sm text-center tracking-widest">
                             {{ $anime->name }}
                         </p>
                     </div>
