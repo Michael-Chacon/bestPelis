@@ -58,7 +58,7 @@ class Podcast extends Model
         return $this->morphMany(Favorite::class, 'favoriteable');
     }
 
-    public function checkLikePodcast(User $user)
+    public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
     }

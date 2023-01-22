@@ -16,7 +16,7 @@
                             @auth
                                 {{-- Botton like --}}
                                 <div class="flex px-1 text-white bg-black bg-opacity-60 border-b-2 border-gray-400">
-                                    <livewire:like-anime :anime="$anime"/>
+                                    <livewire:like-component :modelo='$anime'/>
                                 </div>
                             @endauth
                         </div>

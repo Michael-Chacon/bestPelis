@@ -56,7 +56,7 @@ class Movie extends Model
         return $this->morphMany(Favorite::class, 'favoriteable');
     }
 
-    public function checkLikeMovie(User $user)
+    public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
     }

@@ -36,7 +36,7 @@
                             </div>
                             @auth    
                                 <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-3 gap-x-2">
-                                    <livewire:like-serie :serie="$serie"/>
+                                    <livewire:like-component :modelo='$serie'/>
                                 </div>
                                 <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
                                     <livewire:favorite-component  :modelo="$serie" />

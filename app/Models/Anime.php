@@ -54,7 +54,7 @@ class Anime extends Model
         return $this->morphMany(Favorite::class, 'favoriteable');
     }
 
-    public function checkLikeAnime(User $user)
+    public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
     }
