@@ -39,7 +39,7 @@
                                     <livewire:like-anime :anime="$anime"/>
                                 </div>
                                 <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
-                                    <livewire:favorite-anime :anime="$anime" />
+                                    <livewire:favorite-component  :modelo="$anime" />
                                 </div>
                             @endauth
                         </section>

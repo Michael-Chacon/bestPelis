@@ -74,7 +74,7 @@
                                 <livewire:like-podcast :podcast="$podcast"/>
                             </div>
                             <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
-                                <livewire:favorite-podcast :podcast="$podcast" />
+                                <livewire:favorite-component  :modelo="$podcast" />
                             </div>
                         @endauth
                     </section>

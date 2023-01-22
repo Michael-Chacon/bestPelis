@@ -59,7 +59,7 @@ class Anime extends Model
         return $this->likes->contains('user_id', $user->id);
     }
 
-    public function checkFavoriteAnime(User $user)
+    public function checkFavorites(User $user)
     {
         return $this->favorites->contains('user_id', $user->id);
     }

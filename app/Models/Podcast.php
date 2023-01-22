@@ -64,7 +64,7 @@ class Podcast extends Model
     }
 
     
-    public function checkFavoritePodcast(User $user)
+    public function checkFavorites(User $user)
     {
     return $this->favorites->contains('user_id', $user->id);
     }
