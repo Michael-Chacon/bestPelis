@@ -54,6 +54,11 @@ class Anime extends Model
         return $this->morphMany(Favorite::class, 'favoriteable');
     }
 
+    public function seens()
+    {
+        return $this->morphMany(Seen::class, 'seensable');
+    }
+
     public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
@@ -62,5 +67,10 @@ class Anime extends Model
     public function checkFavorites(User $user)
     {
         return $this->favorites->contains('user_id', $user->id);
+    }
+
+    public function checkWatched(User $user)
+    {
+        return $this->seens->contains('user_id', $user->id);
     }
 }

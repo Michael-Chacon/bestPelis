@@ -15,7 +15,7 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $animes = Anime::with('images', 'likes')->latest()->get();
+        $animes = Anime::with('images', 'likes', 'seens')->latest()->get();
         return view('animes.index', compact('animes'));
     }
 

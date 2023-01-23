@@ -21,16 +21,15 @@
                             @endauth
                         </div>
                         <a href="{{ route('movie.show', $movie) }}">
-                            <div
-                                class="p-4 bg-black hover:bg-gradient-to-r  hover:from-red-900 hover:via-black hover:to-black text-white">
+                            <div class="p-4 bg-black hover:bg-gradient-to-r  hover:from-red-900 hover:via-black hover:to-black text-white">
                                 <h1 class="truncate font-medium text-center capitalize">
                                     {{ $movie->name }}
                                 </h1>
-                                <div class="flex justify-center items-center gap-x-5">
-                                    <div class="text-center font-momo text-sm">
+                                <div class="flex justify-center items-center gap-x-5 ">
+                                    <div class="text-center text-sm text-gray-400">
                                         <div class="flex justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" class="w-5 h-5">
+                                                fill="currentColor" class="w-4 h-4">
                                                 <path
                                                     d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z" />
                                                 <path fill-rule="evenodd"
@@ -38,21 +37,30 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="tracking-widest">
+                                        <span class="tracking-widest text-xs">
                                             {{ $movie->premiere->format('Y') }}
                                         </span>
                                     </div>
-                                    <div class="text-center text-sm">
+                                    <div class="text-center text-sm text-gray-400">
                                         <div class="flex justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" class="w-5 h-5">
+                                                fill="currentColor" class="w-4 h-4">
                                                 <path fill-rule="evenodd"
                                                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        {{ $movie->score }}/10
+                                        <span class="text-xs">
+                                            {{ $movie->score }}/10
+                                        </span>
                                     </div>
+                                    @auth
+                                    <div class="text-center text-sm">
+                                        <div class="flex justify-center">
+                                            <livewire:seen-component :modelo='$movie' />
+                                        </div>
+                                    </div>
+                                    @endauth
                                 </div>
                             </div>
                         </a>

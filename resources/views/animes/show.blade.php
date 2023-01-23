@@ -25,35 +25,27 @@
                                 </p>
                             @endif
                         </section>
-                        <section class="flex justify-center gap-x-5   text-white items-center md:gap-x-5 border border-gray-500 p-5">
-                            <div class="border border-gray-600 bg-gradient-to-r from-indigo-900 via-black to-black rounded-full p-3 flex items-center gap-x-2">
+                        <section class="flex justify-center gap-x-3   text-white items-center border border-gray-500 p-3">
+                            <div class="border border-gray-600 bg-gradient-to-r from-indigo-900 via-black to-black rounded-full p-2 flex items-center gap-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                                 </svg>
                                 <span class="text-sm">{{ $anime->score }} /<small>10</small></span>
                             </div>
                             @auth    
-                                <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-3 gap-x-2">
+                                <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-2 gap-x-2">
                                     <livewire:like-component :modelo='$anime'/>
                                 </div>
-                                <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-3">
+                                <div class="border border-gray-600 bg-gradient-to-r from-pink-900 via-black to-black hover:from-pink-900 hover:via-pink-800 hover:to-black rounded-full p-2">
                                     <livewire:favorite-component  :modelo="$anime" />
                                 </div>
-                            @endauth
-                        </section>
-                        <article>
-                            <div class="p-4">
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                                    <x-primary-button class="w-full bg-purple-900 mt-2">
-                                        <span class="text-center">
-                                            {{ __('Comment') }}
-                                        </span>
-                                    </x-primary-button>
+                                <div class="border border-gray-600 bg-gradient-to-r from-purple-900 via-black to-black hover:from-purple-900 hover:via-purple-800 hover:to-black rounded-full p-2">
+                                    <livewire:seen-component :modelo='$anime' />
                                 </div>
-                        </article>    
+                            @endauth
+                        </section>    
                 </article>
                 <article class="col-span-4 md:col-span-3 pt-5 text-white px-3">
                     <h1 class="text-5xl capitalize">{{ $anime->name }}<span class="text-xl text-gray-500"> ({{ $anime->premiere->format('Y') }})</span></h1>
