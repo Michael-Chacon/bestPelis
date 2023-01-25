@@ -88,6 +88,11 @@
                             class="w-full text-black border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"></textarea>
                             <x-input-error :messages="$errors->get('sinopsis')" class="mt-2" />
                         </section>
+                        <div class="mt-2">
+                            <label for="user trailer" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Trailer:</label>
+                            <input placeholder="Trailer" type="text" wire:model="trailer" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                            <x-input-error :messages="$errors->get('trailer')" class="mt-2" />
+                        </div>
                         <article class="grid grid-cols-2 mt-4">
                             <div>
                                 <h3 class="text-lg text-gray-200 text-center">Actores</h3>

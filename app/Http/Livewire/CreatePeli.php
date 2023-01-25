@@ -18,6 +18,7 @@ class CreatePeli extends Component
     public $sinopsis;
     public $actors = [];
     public $genres = [];
+    public $trailer;
     
     protected $rules = [
         'name' => 'required|max:30|unique:movies',
@@ -27,7 +28,9 @@ class CreatePeli extends Component
         'actors' => 'required',
         'genres' => 'required',
         'perfil' => 'required|image|max:2058',
-        'portada' => 'required|image|max:2058'
+        'portada' => 'required|image|max:2058',
+        'trailer' => 'required|string'
+
     ];
 
     public function saveMovie()
@@ -55,6 +58,10 @@ class CreatePeli extends Component
 
         $peli->images()->create(['url' => $url_perfil, 'destination' => 'perfil']);
         $peli->images()->create(['url' => $url_portada, 'destination' => 'portada']);
+
+        // Registrar trailer 
+        $peli->trailers()->create(['url' => $movie['trailer']]);
+
         $this->reset();
         $this->emit('render');
     }

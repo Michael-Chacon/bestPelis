@@ -8,6 +8,9 @@
                 <article class="col-span-4 md:col-span-1">
                     <img class="md:-mt-40  w-0 md:w-80  border border-gray-500 rounded-xl mb-5 "src="{{ asset('storage/perfil/' . $movie->images()->where('destination', 'perfil')->pluck('url')->first()) }}"
                         alt="">
+                        <section class="mb-2 text-white items-center border text-center border-gray-500 p-3">
+                            <livewire:trailer-component :modelo='$movie'/>
+                        </section> 
                         <section class="flex justify-center gap-x-2   text-white items-center border border-gray-500 p-3">
                             <div class="border border-gray-600 bg-gradient-to-r from-indigo-900 via-black to-black rounded-full p-2 flex items-center gap-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -28,7 +31,7 @@
                                     <livewire:seen-component :modelo='$movie' />
                                 </div>
                             @endauth
-                        </section>   
+                        </section>     
                 </article>
                 <article class="col-span-4 md:col-span-3 pt-5 text-white px-3">
                     <h1 class="text-5xl capitalize">{{ $movie->name }}<span class="text-xl text-gray-500"> ({{ $movie->premiere->format('Y') }})</span></h1>
@@ -102,3 +105,4 @@
         </div>
     </div>
 </x-app-layout>
+

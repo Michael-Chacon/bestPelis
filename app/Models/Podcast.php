@@ -63,6 +63,11 @@ class Podcast extends Model
         return $this->morphMany(Seen::class, 'seensable');
     }
 
+    public function trailers()
+    {
+        return $this->morphMany(Trailer::class, 'trailersable');
+    }
+
     public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
