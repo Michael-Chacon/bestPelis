@@ -64,6 +64,11 @@ class Anime extends Model
         return $this->morphMany(Trailer::class, 'trailersable');
     }
 
+    public function platforms()
+    {
+        return $this->morphMany(Platform::class, 'platformsable');
+    }
+
     public function checkLike(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
