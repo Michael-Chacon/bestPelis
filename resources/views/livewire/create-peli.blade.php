@@ -1,5 +1,5 @@
 <div>
-    <div x-data="{ modelMovie: true }">
+    <div x-data="{ modelMovie: false }">
         <button @click="modelMovie =!modelMovie" class="flex ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
@@ -93,6 +93,48 @@
                             <input placeholder="Trailer" type="text" wire:model="trailer" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
                             <x-input-error :messages="$errors->get('trailer')" class="mt-2" />
                         </div>
+                        <section class="grid grid-cols-2 justify-center items-center gap-x-3">
+                            <div class=" col-span-1">
+                                <label for="underline_select" class="sr-only">Underline select</label>
+                                <select id="underline_select" wire:model="platform" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-black border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                    <option selected>Selecciona plataforma</option>
+                                    @forelse ($platformsPayment as $payment)
+                                        <option value="netflix">{{ $payment->platform }}</option>
+                                    @empty
+                                        <p class="text-white">
+                                            No hay plataformas
+                                        </p>
+                                    @endforelse
+                                </select>
+                            </div>
+                            <div class="mt-5 col-span-1">
+                                <label for="user url" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Url de la peli:</label>
+                                <input placeholder="netflix.com" type="text" wire:model="url" class="block w-full px-3 py-2  text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                <x-input-error :messages="$errors->get('url')" class="mt-2" />
+                            </div>
+                        </section>
+
+                        <section class="grid grid-cols-2 justify-center items-center gap-x-3">
+                            <div class=" col-span-1">
+                                <label for="underline_select" class="sr-only">Underline select</label>
+                                <select id="underline_select" wire:model="platform" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-black border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-500 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                    <option selected>Selecciona plataforma</option>
+                                    @forelse ($platformsFree as $free)
+                                        <option value="netflix">{{ $free->platform }}</option>
+                                    @empty
+                                        <p class="text-white">
+                                            No hay plataformas
+                                        </p>
+                                    @endforelse
+                                </select>
+                            </div>
+                            <div class="mt-5 col-span-1">
+                                <label for="user url" class="block text-sm text-gray-700 capitalize dark:text-gray-200">Url de la peli:</label>
+                                <input placeholder="netflix.com" type="text" wire:model="url2" class="block w-full px-3 py-2  text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                <x-input-error :messages="$errors->get('url')" class="mt-2" />
+                            </div>
+                        </section>
+
                         <article class="grid grid-cols-2 mt-4">
                             <div>
                                 <h3 class="text-lg text-gray-200 text-center">Actores</h3>

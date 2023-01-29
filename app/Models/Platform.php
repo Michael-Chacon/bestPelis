@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Platform extends Model
 {
-    protected $fillable = ['platform', 'url'];
+    protected $fillable = ['platform', 'image', 'access'];
 
     use HasFactory;
 

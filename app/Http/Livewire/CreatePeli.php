@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Actor;
 use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\Platform;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -73,9 +74,13 @@ class CreatePeli extends Component
     {
         $actores = Actor::pluck('id', 'name');
         $generos = Genre::pluck('id', 'name');
+        $platformsPayment = Platform::where('access', 'pago')->get();
+        $platformsFree = Platform::where('access', 'gratis')->get();
         return view('livewire.create-peli', [
             'actores' => $actores,
-            'generos' => $generos
+            'generos' => $generos, 
+            'platformsPayment' => $platformsPayment,
+            'platformsFree' => $platformsFree
         ]);
     }
 }

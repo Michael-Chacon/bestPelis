@@ -21,6 +21,10 @@
                     <livewire:create-actor/>                    
                 </article> 
                 <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
+                    {{-- modal of create actors --}}
+                    <livewire:platform-component/>                    
+                </article> 
+                <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
                     {{-- modal of create generos --}}
                     <livewire:create-genre/>                      
                 </article>
@@ -28,7 +32,10 @@
         </section>
     </x-slot>
     <div class="container mx-auto py-5">
-        <section class="">
+        <section class="flex justify-center items-center">
+            <livewire:show-platforms/>
+        </section>
+        <section class="border border-gray-200">
             <article class="text-white overflow-hidden shadow-sm  grid grid-cols-1 md:grid-cols-4">
 
                 <div class="border-r border-red-200 p-3 col-span-3">

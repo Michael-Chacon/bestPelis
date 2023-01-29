@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
-            $table->string('plataform');
-            $table->string('url');
-            $table->unsignedBigInteger('platformsable_id');
-            $table->string('platformsable_type');
+            $table->string('platform')->unique();
+            $table->string('image');
+            $table->string('access');
             $table->timestamps();
         });
     }
