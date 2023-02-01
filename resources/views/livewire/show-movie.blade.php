@@ -1,4 +1,4 @@
-<div class="mt-2 overflow-auto">
+<div class="mt-2 overflow-x-scroll scroll-smooth snap-x scroll-pl-6">
     <div class="flex gap-x-5 ">
         @forelse ($movies as $movie )
         <a href="{{ route('movie.show', $movie) }}">

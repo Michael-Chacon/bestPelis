@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        {{-- Menu con los madals --}}
         <section class="container">
             <div class="flex justify-between items-center">
                 <article class="bg-gradient-to-r from-red-900 via-black to-black rounded-full p-3">
@@ -35,37 +36,38 @@
         <section class="flex justify-center items-center">
             <livewire:show-platforms/>
         </section>
-        <section class="border border-gray-200">
+        <section class="">
             <article class="text-white overflow-hidden shadow-sm  grid grid-cols-1 md:grid-cols-4">
 
-                <div class="border-r border-red-200 p-3 col-span-3">
+                <div class="p-3 col-span-3 order-2 md-order-1">
                     <h2 class="text-2xl text-gray-200 text-center mt-3 mb-3">Actores</h2>
                     <livewire:show-actor/>
+
+                    <section class="mt-10 grid">
+                        <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas peliculas registradas</h2>  
+                            <livewire:show-movie/>
+                        
+                    </section>
+                    <section class="mt-10 grid">
+                        <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas series registradas</h2>  
+                            <livewire:latest-series/>
+                    </section>
+                    <section class="mt-10 grid">
+                        <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimos animes registrados</h2>  
+                            <livewire:latest-animes/>
+                    </section>
+                    <section class="mt-10 grid">
+                        <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimos podcasts registrados</h2>  
+                            <livewire:latest-podcasts/>
+                    </section>
                 </div>
 
-                <div class="border-l border-red-200 p-3 col-span-1">
+                <div class=" p-3 col-span-1 order-1 md:order-2">
                     <h2 class="text-2xl text-gray-200 text-center mt-3 mb-3">Generos</h2>
                         <livewire:show-genre/>
                 </div>
 
             </article>
-        </section>
-        <section class="mt-10 grid">
-            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas peliculas registradas</h2>  
-                <livewire:show-movie/>
-            
-        </section>
-        <section class="mt-10 grid">
-            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimas series registradas</h2>  
-                <livewire:latest-series/>
-        </section>
-        <section class="mt-10 grid">
-            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimos animes registrados</h2>  
-                <livewire:latest-animes/>
-        </section>
-        <section class="mt-10 grid">
-            <h2 class="text-2xl  text-gray-300 text-center capitalize">Ultimos podcasts registrados</h2>  
-                <livewire:latest-podcasts/>
         </section>
     </div>
   
