@@ -13,15 +13,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <body class="font-sans text-gray-900 " >
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 " style=" background: linear-gradient(to top, hsla(0, 67%, 35%, 0.664), hsla(0, 2%, 8%, 0.664)), url('{{ asset('storage/ilustraciones/principal.PNG') }}');   background-attachment: fixed; position: relative; height: 500px;">
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4  bg-gradient-to-b from-red-900 via-black to-black shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
