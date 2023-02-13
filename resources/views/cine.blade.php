@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="border-t border-gray-500 mb-10">
+    <section class="border-t border-gray-500">
         <header style=" background: linear-gradient(to top, #7B1C1C, hsla(0, 0%, 0%, 0.664)), url('{{ asset('storage/ilustraciones/principal.PNG') }}');   background-attachment: fixed; position: relative; height: 400px;">
             <article class="grid grid-cols-2 md:justify-center md:items-start py-20 px-5">
                 <section class="col-span-2 md:col-span-1 text-center">

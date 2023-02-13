@@ -20,6 +20,8 @@ class CreatePeli extends Component
     public $actors = [];
     public $genres = [];
     public $trailer;
+    public $free;
+    public $payment;
     
     protected $rules = [
         'name' => 'required|max:30|unique:movies',
@@ -31,7 +33,6 @@ class CreatePeli extends Component
         'perfil' => 'required|image|max:2058',
         'portada' => 'required|image|max:2058',
         'trailer' => 'required|string'
-
     ];
 
     public function saveMovie()
